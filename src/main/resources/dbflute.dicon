@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+    "http://www.seasar.org/dtd/components21.dtd">
+
+<components namespace="dbflute">
+    <include path="j2ee.dicon"/>
+
+    <!-- The components of DBFlute Runtime. -->
+    <component name="introduction" class="com.mssoftech.dbflute.allcommon.DBFluteInitializer"/>
+    <component name="invokerAssistant" class="com.mssoftech.dbflute.allcommon.ImplementedInvokerAssistant"/>
+    <component name="commonColumnAutoSetupper" class="com.mssoftech.dbflute.allcommon.ImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="com.mssoftech.dbflute.allcommon.ImplementedBehaviorSelector"/>
+    <component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+
+    <!-- The components of Behavior. -->
+    <component name="memberBhv" class="com.mssoftech.dbflute.exbhv.MemberBhv"/>
+    <component name="memberAddressBhv" class="com.mssoftech.dbflute.exbhv.MemberAddressBhv"/>
+    <component name="memberLoginBhv" class="com.mssoftech.dbflute.exbhv.MemberLoginBhv"/>
+    <component name="memberSecurityBhv" class="com.mssoftech.dbflute.exbhv.MemberSecurityBhv"/>
+    <component name="memberServiceBhv" class="com.mssoftech.dbflute.exbhv.MemberServiceBhv"/>
+    <component name="memberStatusBhv" class="com.mssoftech.dbflute.exbhv.MemberStatusBhv"/>
+    <component name="memberWithdrawalBhv" class="com.mssoftech.dbflute.exbhv.MemberWithdrawalBhv"/>
+    <component name="productBhv" class="com.mssoftech.dbflute.exbhv.ProductBhv"/>
+    <component name="productCategoryBhv" class="com.mssoftech.dbflute.exbhv.ProductCategoryBhv"/>
+    <component name="productStatusBhv" class="com.mssoftech.dbflute.exbhv.ProductStatusBhv"/>
+    <component name="purchaseBhv" class="com.mssoftech.dbflute.exbhv.PurchaseBhv"/>
+    <component name="purchasePaymentBhv" class="com.mssoftech.dbflute.exbhv.PurchasePaymentBhv"/>
+    <component name="regionBhv" class="com.mssoftech.dbflute.exbhv.RegionBhv"/>
+    <component name="serviceRankBhv" class="com.mssoftech.dbflute.exbhv.ServiceRankBhv"/>
+    <component name="summaryProductBhv" class="com.mssoftech.dbflute.exbhv.SummaryProductBhv"/>
+    <component name="summaryWithdrawalBhv" class="com.mssoftech.dbflute.exbhv.SummaryWithdrawalBhv"/>
+    <component name="vendorConstraintNameAutoBarBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoBarBhv"/>
+    <component name="vendorConstraintNameAutoFooBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoFooBhv"/>
+    <component name="vendorConstraintNameAutoQuxBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoQuxBhv"/>
+    <component name="vendorConstraintNameAutoRefBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoRefBhv"/>
+    <component name="vendorLargeDataBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataBhv"/>
+    <component name="vendorLargeDataRefBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataRefBhv"/>
+    <component name="vendorTheLongAndWindingTableAndColumnBhv" class="com.mssoftech.dbflute.exbhv.VendorTheLongAndWindingTableAndColumnBhv"/>
+    <component name="vendorTheLongAndWindingTableAndColumnRefBhv" class="com.mssoftech.dbflute.exbhv.VendorTheLongAndWindingTableAndColumnRefBhv"/>
+    <component name="withdrawalReasonBhv" class="com.mssoftech.dbflute.exbhv.WithdrawalReasonBhv"/>
+</components>

@@ -1,0 +1,61 @@
+map:{
+    ; 2015/04/05 20:43:17 = map:{
+        ; diffDate = 2015/04/05 20:43:17
+        ; tableCount = map:{
+            ; next = 3
+            ; previous = 2
+        }
+        ; tableDiff = map:{
+            ; nopk = map:{
+                ; tableName = nopk
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/04/05 17:26:44 = map:{
+        ; diffDate = 2015/04/05 17:26:44
+        ; tableDiff = map:{
+            ; test1 = map:{
+                ; tableName = test1
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; keydata = map:{
+                        ; columnName = keydata
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = nvarchar
+                            ; previous = nchar
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 50
+                            ; previous = 10
+                        }
+                    }
+                    ; sdata = map:{
+                        ; columnName = sdata
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = nvarchar
+                            ; previous = nchar
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2015/04/05 16:58:51 = map:{
+        ; diffDate = 2015/04/05 16:58:51
+        ; tableDiff = map:{
+            ; test1 = map:{
+                ; tableName = test1
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; sbyte = map:{
+                        ; columnName = sbyte
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}
