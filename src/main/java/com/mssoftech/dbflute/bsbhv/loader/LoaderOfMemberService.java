@@ -7,13 +7,13 @@ import com.mssoftech.dbflute.exbhv.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The referrer loader of member_service as TABLE. <br>
+ * The referrer loader of MEMBER_SERVICE as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_SERVICE_ID
  *
  * [column]
- *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
  *
  * [sequence]
  *     
@@ -25,7 +25,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, service_rank
+ *     MEMBER, SERVICE_RANK
  *
  * [referrer table]
  *     

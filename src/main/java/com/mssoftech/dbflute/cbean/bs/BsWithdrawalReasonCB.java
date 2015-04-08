@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of withdrawal_reason.
+ * The base condition-bean of WITHDRAWAL_REASON.
  * @author DBFlute(AutoGenerator)
  */
 public class BsWithdrawalReasonCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "withdrawal_reason";
+        return "WITHDRAWAL_REASON";
     }
 
     // ===================================================================================
@@ -77,7 +77,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param withdrawalReasonCode : PK, NotNull, CHAR(3). (NotNull)
+     * @param withdrawalReasonCode : PK, NotNull, char(3). (NotNull)
      * @return this. (NotNull)
      */
     public WithdrawalReasonCB acceptPK(String withdrawalReasonCode) {
@@ -89,7 +89,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, int(10). (NotNull)
      * @return this. (NotNull)
      */
     public WithdrawalReasonCB acceptUniqueOf(Integer displayOrder) {
@@ -292,17 +292,17 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
+         * WITHDRAWAL_REASON_CODE: {PK, NotNull, char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("WITHDRAWAL_REASON_CODE"); }
         /**
-         * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
+         * WITHDRAWAL_REASON_TEXT: {NotNull, text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonText() { return doColumn("WITHDRAWAL_REASON_TEXT"); }
         /**
-         * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+         * DISPLAY_ORDER: {UQ, NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
@@ -313,11 +313,11 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
             columnWithdrawalReasonCode(); // PK
         }
         @Override
-        protected String getTableDbName() { return "withdrawal_reason"; }
+        protected String getTableDbName() { return "WITHDRAWAL_REASON"; }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from member_withdrawal where ...) as FOO_MAX} <br>
-         * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+         * {select max(FOO) from MEMBER_WITHDRAWAL where ...) as FOO_MAX} <br>
+         * MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(withdrawalCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     withdrawalCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

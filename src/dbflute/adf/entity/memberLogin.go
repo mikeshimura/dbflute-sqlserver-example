@@ -7,7 +7,7 @@ import (
 type MemberLogin struct {
 	memberLoginId int64
 	memberId int64
-	loginDatetime df.MysqlTimestamp
+	loginDatetime df.Timestamp
 	mobileLoginFlg int64
 	loginMemberStatusCode string
 	df.BaseEntity
@@ -25,7 +25,7 @@ func (l *MemberLogin) GetMemberLoginId () int64 {
 func (l *MemberLogin) GetMemberId () int64 {
 	return l.memberId
 }
-func (l *MemberLogin) GetLoginDatetime () df.MysqlTimestamp {
+func (l *MemberLogin) GetLoginDatetime () df.Timestamp {
 	return l.loginDatetime
 }
 func (l *MemberLogin) GetMobileLoginFlg () int64 {
@@ -64,7 +64,7 @@ func (t *MemberLogin) SetMemberId(memberId int64) {
 	t.AddPropertyName("memberId")
 	t.memberId = memberId
 }
-func (t *MemberLogin) SetLoginDatetime(loginDatetime df.MysqlTimestamp) {
+func (t *MemberLogin) SetLoginDatetime(loginDatetime df.Timestamp) {
 	t.AddPropertyName("loginDatetime")
 	t.loginDatetime = loginDatetime
 }

@@ -3,7 +3,7 @@ package com.mssoftech.dbflute.cbean.nss;
 import com.mssoftech.dbflute.cbean.cq.ProductCategoryCQ;
 
 /**
- * The nest select set-upper of product_category.
+ * The nest select set-upper of PRODUCT_CATEGORY.
  * @author DBFlute(AutoGenerator)
  */
 public class ProductCategoryNss {
@@ -20,7 +20,7 @@ public class ProductCategoryNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
+     * PRODUCT_CATEGORY by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductCategoryNss withProductCategorySelf() {

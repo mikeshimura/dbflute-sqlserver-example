@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of summary_withdrawal.
+ * The base condition-bean of SUMMARY_WITHDRAWAL.
  * @author DBFlute(AutoGenerator)
  */
 public class BsSummaryWithdrawalCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "summary_withdrawal";
+        return "SUMMARY_WITHDRAWAL";
     }
 
     // ===================================================================================
@@ -268,47 +268,47 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * MEMBER_ID: {NotNull, INT(10)}
+         * MEMBER_ID: {NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * MEMBER_NAME: {VARCHAR(180)}
+         * MEMBER_NAME: {nvarchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
-         * WITHDRAWAL_REASON_CODE: {CHAR(3)}
+         * WITHDRAWAL_REASON_CODE: {char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("WITHDRAWAL_REASON_CODE"); }
         /**
-         * WITHDRAWAL_REASON_TEXT: {TEXT(65535)}
+         * WITHDRAWAL_REASON_TEXT: {text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonText() { return doColumn("WITHDRAWAL_REASON_TEXT"); }
         /**
-         * WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)}
+         * WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonInputText() { return doColumn("WITHDRAWAL_REASON_INPUT_TEXT"); }
         /**
-         * WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
+         * WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalDatetime() { return doColumn("WITHDRAWAL_DATETIME"); }
         /**
-         * MEMBER_STATUS_CODE: {CHAR(3)}
+         * MEMBER_STATUS_CODE: {char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
         /**
-         * MEMBER_STATUS_NAME: {VARCHAR(50)}
+         * MEMBER_STATUS_NAME: {nvarchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberStatusName() { return doColumn("MEMBER_STATUS_NAME"); }
         /**
-         * MAX_PURCHASE_PRICE: {BIGINT(19)}
+         * MAX_PURCHASE_PRICE: {int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMaxPurchasePrice() { return doColumn("MAX_PURCHASE_PRICE"); }
@@ -318,7 +318,7 @@ public class BsSummaryWithdrawalCB extends AbstractConditionBean {
         protected void doSpecifyRequiredColumn() {
         }
         @Override
-        protected String getTableDbName() { return "summary_withdrawal"; }
+        protected String getTableDbName() { return "SUMMARY_WITHDRAWAL"; }
     }
 
     // ===================================================================================

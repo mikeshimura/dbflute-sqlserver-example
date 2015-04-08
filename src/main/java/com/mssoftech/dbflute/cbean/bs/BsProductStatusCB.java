@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of product_status.
+ * The base condition-bean of PRODUCT_STATUS.
  * @author DBFlute(AutoGenerator)
  */
 public class BsProductStatusCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "product_status";
+        return "PRODUCT_STATUS";
     }
 
     // ===================================================================================
@@ -77,7 +77,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param productStatusCode : PK, NotNull, CHAR(3). (NotNull)
+     * @param productStatusCode : PK, NotNull, char(3). (NotNull)
      * @return this. (NotNull)
      */
     public ProductStatusCB acceptPK(String productStatusCode) {
@@ -89,7 +89,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, int(10). (NotNull)
      * @return this. (NotNull)
      */
     public ProductStatusCB acceptUniqueOf(Integer displayOrder) {
@@ -292,17 +292,17 @@ public class BsProductStatusCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
+         * PRODUCT_STATUS_CODE: {PK, NotNull, char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
         /**
-         * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
+         * PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusName() { return doColumn("PRODUCT_STATUS_NAME"); }
         /**
-         * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+         * DISPLAY_ORDER: {UQ, NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
@@ -313,11 +313,11 @@ public class BsProductStatusCB extends AbstractConditionBean {
             columnProductStatusCode(); // PK
         }
         @Override
-        protected String getTableDbName() { return "product_status"; }
+        protected String getTableDbName() { return "PRODUCT_STATUS"; }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from product where ...) as FOO_MAX} <br>
-         * product by PRODUCT_STATUS_CODE, named 'productList'.
+         * {select max(FOO) from PRODUCT where ...) as FOO_MAX} <br>
+         * PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     productCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

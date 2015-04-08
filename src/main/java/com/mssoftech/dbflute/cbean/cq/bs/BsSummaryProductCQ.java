@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of summary_product.
+ * The base condition-query of SUMMARY_PRODUCT.
  * @author DBFlute(AutoGenerator)
  */
 public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
@@ -35,7 +35,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from summary_product) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from SUMMARY_PRODUCT) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -58,7 +58,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join summary_product on ... and FOO = [value] ...}
+     * {select ... from ... left outer join SUMMARY_PRODUCT on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
@@ -81,14 +81,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * PRODUCT_ID: {NotNull, int identity(10)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * PRODUCT_ID: {NotNull, int identity(10)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
@@ -101,14 +101,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
@@ -121,14 +121,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * PRODUCT_HANDLE_CODE: {NotNull, nvarchar(100)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * PRODUCT_HANDLE_CODE: {NotNull, nvarchar(100)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
@@ -141,14 +141,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
@@ -161,14 +161,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
+     * LATEST_PURCHASE_DATETIME: {datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Asc() { regOBA("LATEST_PURCHASE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
+     * LATEST_PURCHASE_DATETIME: {datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Desc() { regOBD("LATEST_PURCHASE_DATETIME"); return this; }

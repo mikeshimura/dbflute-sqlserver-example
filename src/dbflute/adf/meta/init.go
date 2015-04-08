@@ -49,10 +49,6 @@ func MetaInit() {
 	var Purchase_meta df.DBMeta = PurchaseDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["Purchase"] = &Purchase_meta
 	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("Purchase", "Purchase")
-	Create_PurchasePaymentDbm()
-	var PurchasePayment_meta df.DBMeta = PurchasePaymentDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["PurchasePayment"] = &PurchasePayment_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("PurchasePayment", "PurchasePayment")
 	Create_RegionDbm()
 	var Region_meta df.DBMeta = RegionDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["Region"] = &Region_meta
@@ -69,38 +65,14 @@ func MetaInit() {
 	var SummaryWithdrawal_meta df.DBMeta = SummaryWithdrawalDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["SummaryWithdrawal"] = &SummaryWithdrawal_meta
 	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("SummaryWithdrawal", "SummaryWithdrawal")
-	Create_VendorConstraintNameAutoBarDbm()
-	var VendorConstraintNameAutoBar_meta df.DBMeta = VendorConstraintNameAutoBarDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorConstraintNameAutoBar"] = &VendorConstraintNameAutoBar_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorConstraintNameAutoBar", "VendorConstraintNameAutoBar")
-	Create_VendorConstraintNameAutoFooDbm()
-	var VendorConstraintNameAutoFoo_meta df.DBMeta = VendorConstraintNameAutoFooDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorConstraintNameAutoFoo"] = &VendorConstraintNameAutoFoo_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorConstraintNameAutoFoo", "VendorConstraintNameAutoFoo")
-	Create_VendorConstraintNameAutoQuxDbm()
-	var VendorConstraintNameAutoQux_meta df.DBMeta = VendorConstraintNameAutoQuxDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorConstraintNameAutoQux"] = &VendorConstraintNameAutoQux_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorConstraintNameAutoQux", "VendorConstraintNameAutoQux")
-	Create_VendorConstraintNameAutoRefDbm()
-	var VendorConstraintNameAutoRef_meta df.DBMeta = VendorConstraintNameAutoRefDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorConstraintNameAutoRef"] = &VendorConstraintNameAutoRef_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorConstraintNameAutoRef", "VendorConstraintNameAutoRef")
-	Create_VendorLargeDataDbm()
-	var VendorLargeData_meta df.DBMeta = VendorLargeDataDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorLargeData"] = &VendorLargeData_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorLargeData", "VendorLargeData")
-	Create_VendorLargeDataRefDbm()
-	var VendorLargeDataRef_meta df.DBMeta = VendorLargeDataRefDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorLargeDataRef"] = &VendorLargeDataRef_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorLargeDataRef", "VendorLargeDataRef")
-	Create_VendorTheLongAndWindingTableAndColumnDbm()
-	var VendorTheLongAndWindingTableAndColumn_meta df.DBMeta = VendorTheLongAndWindingTableAndColumnDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorTheLongAndWindingTableAndColumn"] = &VendorTheLongAndWindingTableAndColumn_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorTheLongAndWindingTableAndColumn", "VendorTheLongAndWindingTableAndColumn")
-	Create_VendorTheLongAndWindingTableAndColumnRefDbm()
-	var VendorTheLongAndWindingTableAndColumnRef_meta df.DBMeta = VendorTheLongAndWindingTableAndColumnRefDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorTheLongAndWindingTableAndColumnRef"] = &VendorTheLongAndWindingTableAndColumnRef_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorTheLongAndWindingTableAndColumnRef", "VendorTheLongAndWindingTableAndColumnRef")
+	Create_VendorSymmetricDbm()
+	var VendorSymmetric_meta df.DBMeta = VendorSymmetricDbm
+	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorSymmetric"] = &VendorSymmetric_meta
+	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorSymmetric", "VendorSymmetric")
+	Create_WhiteDelimiterDbm()
+	var WhiteDelimiter_meta df.DBMeta = WhiteDelimiterDbm
+	df.DBMetaProvider_I.TableDbNameInstanceMap["WhiteDelimiter"] = &WhiteDelimiter_meta
+	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("WhiteDelimiter", "WhiteDelimiter")
 	Create_WithdrawalReasonDbm()
 	var WithdrawalReason_meta df.DBMeta = WithdrawalReasonDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["WithdrawalReason"] = &WithdrawalReason_meta

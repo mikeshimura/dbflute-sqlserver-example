@@ -43,7 +43,7 @@ import com.mssoftech.dbflute.exentity.customize.*;
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
  * String memberAccount = entity.getMemberAccount();
- * java.time.LocalDate birthdate = entity.getBirthdate();
+ * String birthdate = entity.getBirthdate();
  * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
  * String memberStatusCode = entity.getMemberStatusCode();
  * String memberStatusName = entity.getMemberStatusName();
@@ -71,28 +71,28 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** member_id: {INT(11), refers to member.MEMBER_ID} */
+    /** member_id: {int identity(10)} */
     protected Integer _memberId;
 
-    /** member_name: {VARCHAR(180), refers to member.MEMBER_NAME} */
+    /** member_name: {nvarchar(200)} */
     protected String _memberName;
 
-    /** member_account: {VARCHAR(50), refers to member.MEMBER_ACCOUNT} */
+    /** member_account: {nvarchar(50)} */
     protected String _memberAccount;
 
-    /** birthdate: {DATE(10), refers to member.BIRTHDATE} */
-    protected java.time.LocalDate _birthdate;
+    /** birthdate: {nvarchar(10)} */
+    protected String _birthdate;
 
-    /** formalized_datetime: {DATETIME(19), refers to member.FORMALIZED_DATETIME} */
+    /** formalized_datetime: {datetime(23, 3)} */
     protected java.time.LocalDateTime _formalizedDatetime;
 
-    /** member_status_code: {CHAR(3), refers to member.MEMBER_STATUS_CODE} */
+    /** member_status_code: {char(3)} */
     protected String _memberStatusCode;
 
-    /** member_status_name: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} */
+    /** member_status_name: {nvarchar(50)} */
     protected String _memberStatusName;
 
-    /** description: {VARCHAR(200), refers to member_status.DESCRIPTION} */
+    /** description: {nvarchar(200)} */
     protected String _description;
 
     // ===================================================================================
@@ -199,9 +199,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] member_id: {INT(11), refers to member.MEMBER_ID} <br>
-     * 会員ID: 会員を識別するID。連番として基本的に自動採番される。<br>
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。
+     * [get] member_id: {int identity(10)} <br>
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
@@ -210,9 +208,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] member_id: {INT(11), refers to member.MEMBER_ID} <br>
-     * 会員ID: 会員を識別するID。連番として基本的に自動採番される。<br>
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。
+     * [set] member_id: {int identity(10)} <br>
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -221,8 +217,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] member_name: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
-     * 会員名称: 会員のフルネームの名称。
+     * [get] member_name: {nvarchar(200)} <br>
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
@@ -231,8 +226,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] member_name: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
-     * 会員名称: 会員のフルネームの名称。
+     * [set] member_name: {nvarchar(200)} <br>
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
@@ -241,8 +235,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] member_account: {VARCHAR(50), refers to member.MEMBER_ACCOUNT} <br>
-     * 会員アカウント: 会員がログイン時に利用するアカウントNO。
+     * [get] member_account: {nvarchar(50)} <br>
      * @return The value of the column 'member_account'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberAccount() {
@@ -251,8 +244,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] member_account: {VARCHAR(50), refers to member.MEMBER_ACCOUNT} <br>
-     * 会員アカウント: 会員がログイン時に利用するアカウントNO。
+     * [set] member_account: {nvarchar(50)} <br>
      * @param memberAccount The value of the column 'member_account'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberAccount(String memberAccount) {
@@ -261,29 +253,25 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] birthdate: {DATE(10), refers to member.BIRTHDATE} <br>
-     * 生年月日: 必須項目ではないので、このデータがない会員もいる。
+     * [get] birthdate: {nvarchar(10)} <br>
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
-    public java.time.LocalDate getBirthdate() {
+    public String getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
 
     /**
-     * [set] birthdate: {DATE(10), refers to member.BIRTHDATE} <br>
-     * 生年月日: 必須項目ではないので、このデータがない会員もいる。
+     * [set] birthdate: {nvarchar(10)} <br>
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.time.LocalDate birthdate) {
+    public void setBirthdate(String birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
 
     /**
-     * [get] formalized_datetime: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
-     * 正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。<br>
-     * 仮会員のときはnull。
+     * [get] formalized_datetime: {datetime(23, 3)} <br>
      * @return The value of the column 'formalized_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getFormalizedDatetime() {
@@ -292,9 +280,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] formalized_datetime: {DATETIME(19), refers to member.FORMALIZED_DATETIME} <br>
-     * 正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。<br>
-     * 仮会員のときはnull。
+     * [set] formalized_datetime: {datetime(23, 3)} <br>
      * @param formalizedDatetime The value of the column 'formalized_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
@@ -303,8 +289,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] member_status_code: {CHAR(3), refers to member.MEMBER_STATUS_CODE} <br>
-     * 会員ステータスコード
+     * [get] member_status_code: {char(3)} <br>
      * @return The value of the column 'member_status_code'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -313,8 +298,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] member_status_code: {CHAR(3), refers to member.MEMBER_STATUS_CODE} <br>
-     * 会員ステータスコード
+     * [set] member_status_code: {char(3)} <br>
      * @param memberStatusCode The value of the column 'member_status_code'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusCode(String memberStatusCode) {
@@ -323,8 +307,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] member_status_name: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
-     * 会員ステータス名称
+     * [get] member_status_name: {nvarchar(50)} <br>
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -333,8 +316,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] member_status_name: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} <br>
-     * 会員ステータス名称
+     * [set] member_status_name: {nvarchar(50)} <br>
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -343,9 +325,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] description: {VARCHAR(200), refers to member_status.DESCRIPTION} <br>
-     * 説明: 会員ステータスそれぞれの説明。<br>
-     * 気の利いた説明があるとディベロッパーがとても助かる。
+     * [get] description: {nvarchar(200)} <br>
      * @return The value of the column 'description'. (NullAllowed even if selected: for no constraint)
      */
     public String getDescription() {
@@ -354,9 +334,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] description: {VARCHAR(200), refers to member_status.DESCRIPTION} <br>
-     * 説明: 会員ステータスそれぞれの説明。<br>
-     * 気の利いた説明があるとディベロッパーがとても助かる。
+     * [set] description: {nvarchar(200)} <br>
      * @param description The value of the column 'description'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDescription(String description) {

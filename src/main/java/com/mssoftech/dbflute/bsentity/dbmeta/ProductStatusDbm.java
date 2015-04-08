@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.allcommon.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The DB meta of product_status. (Singleton)
+ * The DB meta of PRODUCT_STATUS. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
 public class ProductStatusDbm extends AbstractDBMeta {
@@ -52,10 +52,10 @@ public class ProductStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "product_status";
-    protected final String _tableDispName = "product_status";
+    protected final String _tableDbName = "PRODUCT_STATUS";
+    protected final String _tableDispName = "PRODUCT_STATUS";
     protected final String _tablePropertyName = "productStatus";
-    protected final TableSqlName _tableSqlName = new TableSqlName("product_status", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("exampledb.dbo.PRODUCT_STATUS", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -65,25 +65,25 @@ public class ProductStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "productList", null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, true, false, true, "char", 3, 0, null, false, null, null, null, "productList", null, false);
 //"string"
-    protected final ColumnInfo _columnProductStatusName = cci("PRODUCT_STATUS_NAME", "PRODUCT_STATUS_NAME", null, null, String.class, "productStatusName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductStatusName = cci("PRODUCT_STATUS_NAME", "PRODUCT_STATUS_NAME", null, null, String.class, "productStatusName", null, false, false, true, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "int", 10, 0, null, false, null, null, null, null, null, false);
 //"int64"
 
     /**
-     * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {PK, NotNull, char(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductStatusCode() { return _columnProductStatusCode; }
     /**
-     * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductStatusName() { return _columnProductStatusName; }
     /**
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDisplayOrder() { return _columnDisplayOrder; }
@@ -126,7 +126,7 @@ public class ProductStatusDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * product by PRODUCT_STATUS_CODE, named 'productList'.
+     * PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {

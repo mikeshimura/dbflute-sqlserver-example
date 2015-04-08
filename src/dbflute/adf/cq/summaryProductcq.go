@@ -284,28 +284,28 @@ func (q *SummaryProductCQ) getCValueLatestPurchaseDatetime() *df.ConditionValue 
 
 
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_Equal(value df.MysqlTimestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_Equal(value df.Timestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterThan(value df.MysqlTimestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterThan(value df.Timestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessThan(value df.MysqlTimestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessThan(value df.Timestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterEqual(value df.MysqlTimestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterEqual(value df.Timestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessEqual(value df.MysqlTimestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessEqual(value df.Timestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_LE_C, value)
 	return q
 }

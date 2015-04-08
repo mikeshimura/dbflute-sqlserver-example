@@ -7,7 +7,7 @@ import com.mssoftech.dbflute.exbhv.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The referrer loader of member_login as TABLE. <br>
+ * The referrer loader of MEMBER_LOGIN as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_LOGIN_ID
@@ -25,7 +25,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     member_status, member
+ *     MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     

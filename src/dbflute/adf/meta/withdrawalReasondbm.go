@@ -23,11 +23,11 @@ var WithdrawalReasonDbm *WithdrawalReasonDbm_T
 
 func Create_WithdrawalReasonDbm() {
 	WithdrawalReasonDbm = new(WithdrawalReasonDbm_T)
-	WithdrawalReasonDbm.TableDbName = "withdrawal_reason"
-	WithdrawalReasonDbm.TableDispName = "withdrawal_reason"
+	WithdrawalReasonDbm.TableDbName = "WITHDRAWAL_REASON"
+	WithdrawalReasonDbm.TableDispName = "WITHDRAWAL_REASON"
 	WithdrawalReasonDbm.TablePropertyName = "withdrawalReason"
 	WithdrawalReasonDbm.TableSqlName = new(df.TableSqlName)
-	WithdrawalReasonDbm.TableSqlName.TableSqlName = "withdrawal_reason"
+	WithdrawalReasonDbm.TableSqlName.TableSqlName = "exampledb.dbo.WITHDRAWAL_REASON"
 	WithdrawalReasonDbm.TableSqlName.CorrespondingDbName = WithdrawalReasonDbm.TableDbName
 
 	var withdrawalReason df.DBMeta
@@ -37,17 +37,17 @@ func Create_WithdrawalReasonDbm() {
 	//colsqlname dayoo WITHDRAWAL_REASON_CODE
 	withdrawalReasonCodeSqlName.ColumnSqlName = "WITHDRAWAL_REASON_CODE"
 	withdrawalReasonCodeSqlName.IrregularChar = false
-	WithdrawalReasonDbm.ColumnWithdrawalReasonCode = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","memberWithdrawalList","",false,"string")
+	WithdrawalReasonDbm.ColumnWithdrawalReasonCode = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", true, false,true, "char", 3, 0, "",false,"","", "","memberWithdrawalList","",false,"string")
 	withdrawalReasonTextSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo WITHDRAWAL_REASON_TEXT
 	withdrawalReasonTextSqlName.ColumnSqlName = "WITHDRAWAL_REASON_TEXT"
 	withdrawalReasonTextSqlName.IrregularChar = false
-	WithdrawalReasonDbm.ColumnWithdrawalReasonText = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_TEXT", withdrawalReasonTextSqlName, "", "", "String.class", "withdrawalReasonText", "", false, false,true, "TEXT", 65535, 0, "",false,"","", "","","",false,"string")
+	WithdrawalReasonDbm.ColumnWithdrawalReasonText = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_TEXT", withdrawalReasonTextSqlName, "", "", "String.class", "withdrawalReasonText", "", false, false,true, "text", 2147483647, 0, "",false,"","", "","","",false,"string")
 	displayOrderSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo DISPLAY_ORDER
 	displayOrderSqlName.ColumnSqlName = "DISPLAY_ORDER"
 	displayOrderSqlName.IrregularChar = false
-	WithdrawalReasonDbm.ColumnDisplayOrder = df.CCI(&withdrawalReason, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
+	WithdrawalReasonDbm.ColumnDisplayOrder = df.CCI(&withdrawalReason, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "int", 10, 0, "",false,"","", "","","",false,"int64")
 
 	WithdrawalReasonDbm.ColumnInfoList = new(df.List)
 	WithdrawalReasonDbm.ColumnInfoList.Add(WithdrawalReasonDbm.ColumnWithdrawalReasonCode)

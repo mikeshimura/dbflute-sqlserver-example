@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of region.
+ * The base condition-bean of REGION.
  * @author DBFlute(AutoGenerator)
  */
 public class BsRegionCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsRegionCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "region";
+        return "REGION";
     }
 
     // ===================================================================================
@@ -77,7 +77,7 @@ public class BsRegionCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param regionId : PK, NotNull, INT(10). (NotNull)
+     * @param regionId : PK, NotNull, int(10). (NotNull)
      * @return this. (NotNull)
      */
     public RegionCB acceptPK(Integer regionId) {
@@ -280,12 +280,12 @@ public class BsRegionCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * REGION_ID: {PK, NotNull, INT(10)}
+         * REGION_ID: {PK, NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionId() { return doColumn("REGION_ID"); }
         /**
-         * REGION_NAME: {NotNull, VARCHAR(50)}
+         * REGION_NAME: {NotNull, nvarchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionName() { return doColumn("REGION_NAME"); }
@@ -296,11 +296,11 @@ public class BsRegionCB extends AbstractConditionBean {
             columnRegionId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "region"; }
+        protected String getTableDbName() { return "REGION"; }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from member_address where ...) as FOO_MAX} <br>
-         * member_address by REGION_ID, named 'memberAddressList'.
+         * {select max(FOO) from MEMBER_ADDRESS where ...) as FOO_MAX} <br>
+         * MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     addressCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

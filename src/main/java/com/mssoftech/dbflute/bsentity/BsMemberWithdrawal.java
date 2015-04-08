@@ -12,15 +12,13 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of member_withdrawal as TABLE. <br>
- * 会員退会情報: 退会会員の退会に関する詳細な情報。<br>
- * 退会会員のみデータが存在する。
+ * The entity of MEMBER_WITHDRAWAL as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_ID
  * 
  * [column]
- *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  * 
  * [sequence]
  *     
@@ -29,10 +27,10 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  * 
  * [version-no]
- *     
+ *     VERSION_NO
  * 
  * [foreign table]
- *     member, withdrawal_reason
+ *     MEMBER, WITHDRAWAL_REASON
  * 
  * [referrer table]
  *     
@@ -50,17 +48,23 @@ import com.mssoftech.dbflute.exentity.*;
  * String withdrawalReasonInputText = entity.getWithdrawalReasonInputText();
  * java.time.LocalDateTime withdrawalDatetime = entity.getWithdrawalDatetime();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
+ * String registerProcess = entity.getRegisterProcess();
  * String registerUser = entity.getRegisterUser();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
+ * String updateProcess = entity.getUpdateProcess();
  * String updateUser = entity.getUpdateUser();
+ * Long versionNo = entity.getVersionNo();
  * entity.setMemberId(memberId);
  * entity.setWithdrawalReasonCode(withdrawalReasonCode);
  * entity.setWithdrawalReasonInputText(withdrawalReasonInputText);
  * entity.setWithdrawalDatetime(withdrawalDatetime);
  * entity.setRegisterDatetime(registerDatetime);
+ * entity.setRegisterProcess(registerProcess);
  * entity.setRegisterUser(registerUser);
  * entity.setUpdateDatetime(updateDatetime);
+ * entity.setUpdateProcess(updateProcess);
  * entity.setUpdateUser(updateUser);
+ * entity.setVersionNo(versionNo);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -76,29 +80,38 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_ID: {PK, NotNull, INT(10), FK to member} */
+    /** MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} */
     protected Integer _memberId;
 
-    /** WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason} */
+    /** WITHDRAWAL_REASON_CODE: {char(3), FK to WITHDRAWAL_REASON} */
     protected String _withdrawalReasonCode;
 
-    /** WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} */
+    /** WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} */
     protected String _withdrawalReasonInputText;
 
-    /** WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} */
+    /** WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _withdrawalDatetime;
 
-    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
+    /** REGISTER_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
+    /** REGISTER_PROCESS: {NotNull, nvarchar(200)} */
+    protected String _registerProcess;
+
+    /** REGISTER_USER: {NotNull, nvarchar(200)} */
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
+    /** UPDATE_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
+    /** UPDATE_PROCESS: {NotNull, nvarchar(200)} */
+    protected String _updateProcess;
+
+    /** UPDATE_USER: {NotNull, nvarchar(200)} */
     protected String _updateUser;
+
+    /** VERSION_NO: {NotNull, bigint(19)} */
+    protected Long _versionNo;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -110,7 +123,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "member_withdrawal";
+        return "MEMBER_WITHDRAWAL";
     }
 
     // ===================================================================================
@@ -125,11 +138,11 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** member by my MEMBER_ID, named 'member'. */
+    /** MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] member by my MEMBER_ID, named 'member'. <br>
+     * [get] MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -139,18 +152,18 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] member by my MEMBER_ID, named 'member'.
+     * [set] MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
-    /** withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. */
+    /** WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. */
     protected OptionalEntity<WithdrawalReason> _withdrawalReason;
 
     /**
-     * [get] withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. <br>
+     * [get] WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'withdrawalReason'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -160,7 +173,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * [set] WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      * @param withdrawalReason The entity of foreign property 'withdrawalReason'. (NullAllowed)
      */
     public void setWithdrawalReason(OptionalEntity<WithdrawalReason> withdrawalReason) {
@@ -217,9 +230,12 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
         sb.append(dm).append(xfND(_withdrawalReasonInputText));
         sb.append(dm).append(xfND(_withdrawalDatetime));
         sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerProcess));
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateProcess));
         sb.append(dm).append(xfND(_updateUser));
+        sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -249,7 +265,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * [get] MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -258,7 +274,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * [set] MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -267,9 +283,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason} <br>
-     * 退会理由コード: 退会した定型理由を参照するコード。<br>
-     * 何も言わずに退会する会員もいるので必須項目ではない。
+     * [get] WITHDRAWAL_REASON_CODE: {char(3), FK to WITHDRAWAL_REASON} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonCode() {
@@ -278,9 +292,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason} <br>
-     * 退会理由コード: 退会した定型理由を参照するコード。<br>
-     * 何も言わずに退会する会員もいるので必須項目ではない。
+     * [set] WITHDRAWAL_REASON_CODE: {char(3), FK to WITHDRAWAL_REASON} <br>
      * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonCode(String withdrawalReasonCode) {
@@ -289,9 +301,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
-     * 退会理由入力テキスト: 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonInputText() {
@@ -300,9 +310,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
-     * 退会理由入力テキスト: 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonInputText(String withdrawalReasonInputText) {
@@ -311,9 +319,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
-     * 退会日時: 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * [get] WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getWithdrawalDatetime() {
@@ -322,9 +328,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
-     * 退会日時: 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * [set] WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalDatetime(java.time.LocalDateTime withdrawalDatetime) {
@@ -333,7 +337,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] REGISTER_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -342,7 +346,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] REGISTER_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -351,7 +355,25 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] REGISTER_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @return The value of the column 'REGISTER_PROCESS'. (basically NotNull if selected: for the constraint)
+     */
+    public String getRegisterProcess() {
+        checkSpecifiedProperty("registerProcess");
+        return _registerProcess;
+    }
+
+    /**
+     * [set] REGISTER_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @param registerProcess The value of the column 'REGISTER_PROCESS'. (basically NotNull if update: for the constraint)
+     */
+    public void setRegisterProcess(String registerProcess) {
+        registerModifiedProperty("registerProcess");
+        _registerProcess = registerProcess;
+    }
+
+    /**
+     * [get] REGISTER_USER: {NotNull, nvarchar(200)} <br>
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -360,7 +382,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] REGISTER_USER: {NotNull, nvarchar(200)} <br>
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -369,7 +391,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] UPDATE_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -378,7 +400,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] UPDATE_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -387,7 +409,25 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] UPDATE_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @return The value of the column 'UPDATE_PROCESS'. (basically NotNull if selected: for the constraint)
+     */
+    public String getUpdateProcess() {
+        checkSpecifiedProperty("updateProcess");
+        return _updateProcess;
+    }
+
+    /**
+     * [set] UPDATE_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @param updateProcess The value of the column 'UPDATE_PROCESS'. (basically NotNull if update: for the constraint)
+     */
+    public void setUpdateProcess(String updateProcess) {
+        registerModifiedProperty("updateProcess");
+        _updateProcess = updateProcess;
+    }
+
+    /**
+     * [get] UPDATE_USER: {NotNull, nvarchar(200)} <br>
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -396,11 +436,29 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] UPDATE_USER: {NotNull, nvarchar(200)} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");
         _updateUser = updateUser;
+    }
+
+    /**
+     * [get] VERSION_NO: {NotNull, bigint(19)} <br>
+     * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
+     */
+    public Long getVersionNo() {
+        checkSpecifiedProperty("versionNo");
+        return _versionNo;
+    }
+
+    /**
+     * [set] VERSION_NO: {NotNull, bigint(19)} <br>
+     * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
+     */
+    public void setVersionNo(Long versionNo) {
+        registerModifiedProperty("versionNo");
+        _versionNo = versionNo;
     }
 }

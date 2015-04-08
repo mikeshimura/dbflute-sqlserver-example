@@ -13,8 +13,10 @@ type MemberAddressDbm_T struct {
 	ColumnAddress *df.ColumnInfo
 	ColumnRegionId *df.ColumnInfo
 	ColumnRegisterDatetime *df.ColumnInfo
+	ColumnRegisterProcess *df.ColumnInfo
 	ColumnRegisterUser *df.ColumnInfo
 	ColumnUpdateDatetime *df.ColumnInfo
+	ColumnUpdateProcess *df.ColumnInfo
 	ColumnUpdateUser *df.ColumnInfo
 	ColumnVersionNo *df.ColumnInfo
 }
@@ -31,13 +33,12 @@ var MemberAddressDbm *MemberAddressDbm_T
 
 func Create_MemberAddressDbm() {
 	MemberAddressDbm = new(MemberAddressDbm_T)
-	MemberAddressDbm.TableDbName = "member_address"
-	MemberAddressDbm.TableDispName = "member_address"
+	MemberAddressDbm.TableDbName = "MEMBER_ADDRESS"
+	MemberAddressDbm.TableDispName = "MEMBER_ADDRESS"
 	MemberAddressDbm.TablePropertyName = "memberAddress"
 	MemberAddressDbm.TableSqlName = new(df.TableSqlName)
-	MemberAddressDbm.TableSqlName.TableSqlName = "member_address"
+	MemberAddressDbm.TableSqlName.TableSqlName = "exampledb.dbo.MEMBER_ADDRESS"
 	MemberAddressDbm.TableSqlName.CorrespondingDbName = MemberAddressDbm.TableDbName
-	MemberAddressDbm.Identity=true
 
 	var memberAddress df.DBMeta
 	memberAddress = MemberAddressDbm
@@ -46,57 +47,67 @@ func Create_MemberAddressDbm() {
 	//colsqlname dayoo MEMBER_ADDRESS_ID
 	memberAddressIdSqlName.ColumnSqlName = "MEMBER_ADDRESS_ID"
 	memberAddressIdSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnMemberAddressId = df.CCI(&memberAddress, "MEMBER_ADDRESS_ID", memberAddressIdSqlName, "", "", "Integer.class", "memberAddressId", "", true, true,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
+	MemberAddressDbm.ColumnMemberAddressId = df.CCI(&memberAddress, "MEMBER_ADDRESS_ID", memberAddressIdSqlName, "", "", "Integer.class", "memberAddressId", "", true, false,true, "int", 10, 0, "",false,"","", "","","",false,"int64")
 	memberIdSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo MEMBER_ID
 	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnMemberId = df.CCI(&memberAddress, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", false, false,true, "INT", 10, 0, "",false,"","", "member","","",false,"int64")
+	MemberAddressDbm.ColumnMemberId = df.CCI(&memberAddress, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", false, false,true, "int", 10, 0, "",false,"","", "member","","",false,"int64")
 	validBeginDateSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo VALID_BEGIN_DATE
 	validBeginDateSqlName.ColumnSqlName = "VALID_BEGIN_DATE"
 	validBeginDateSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnValidBeginDate = df.CCI(&memberAddress, "VALID_BEGIN_DATE", validBeginDateSqlName, "", "", "java.time.LocalDate.class", "validBeginDate", "", false, false,true, "DATE", 10, 0, "",false,"","", "","","",false,"df.MysqlDate")
+	MemberAddressDbm.ColumnValidBeginDate = df.CCI(&memberAddress, "VALID_BEGIN_DATE", validBeginDateSqlName, "", "", "String.class", "validBeginDate", "", false, false,true, "date", 10, 0, "",false,"","", "","","",false,"df.Date")
 	validEndDateSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo VALID_END_DATE
 	validEndDateSqlName.ColumnSqlName = "VALID_END_DATE"
 	validEndDateSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnValidEndDate = df.CCI(&memberAddress, "VALID_END_DATE", validEndDateSqlName, "", "", "java.time.LocalDate.class", "validEndDate", "", false, false,true, "DATE", 10, 0, "",false,"","", "","","",false,"df.MysqlDate")
+	MemberAddressDbm.ColumnValidEndDate = df.CCI(&memberAddress, "VALID_END_DATE", validEndDateSqlName, "", "", "String.class", "validEndDate", "", false, false,true, "date", 10, 0, "",false,"","", "","","",false,"df.Date")
 	addressSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo ADDRESS
 	addressSqlName.ColumnSqlName = "ADDRESS"
 	addressSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnAddress = df.CCI(&memberAddress, "ADDRESS", addressSqlName, "", "", "String.class", "address", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
+	MemberAddressDbm.ColumnAddress = df.CCI(&memberAddress, "ADDRESS", addressSqlName, "", "", "String.class", "address", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	regionIdSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo REGION_ID
 	regionIdSqlName.ColumnSqlName = "REGION_ID"
 	regionIdSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnRegionId = df.CCI(&memberAddress, "REGION_ID", regionIdSqlName, "", "", "Integer.class", "regionId", "", false, false,true, "INT", 10, 0, "",false,"","", "region","","",false,"int64")
+	MemberAddressDbm.ColumnRegionId = df.CCI(&memberAddress, "REGION_ID", regionIdSqlName, "", "", "Integer.class", "regionId", "", false, false,true, "int", 10, 0, "",false,"","", "region","","",false,"int64")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo REGISTER_DATETIME
 	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnRegisterDatetime = df.CCI(&memberAddress, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
+	MemberAddressDbm.ColumnRegisterDatetime = df.CCI(&memberAddress, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "datetime", 23, 3, "",false,"","", "","","",false,"df.Timestamp")
+	registerProcessSqlName := new(df.ColumnSqlName)
+	//colsqlname dayoo REGISTER_PROCESS
+	registerProcessSqlName.ColumnSqlName = "REGISTER_PROCESS"
+	registerProcessSqlName.IrregularChar = false
+	MemberAddressDbm.ColumnRegisterProcess = df.CCI(&memberAddress, "REGISTER_PROCESS", registerProcessSqlName, "", "", "String.class", "registerProcess", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	registerUserSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo REGISTER_USER
 	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnRegisterUser = df.CCI(&memberAddress, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
+	MemberAddressDbm.ColumnRegisterUser = df.CCI(&memberAddress, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo UPDATE_DATETIME
 	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnUpdateDatetime = df.CCI(&memberAddress, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
+	MemberAddressDbm.ColumnUpdateDatetime = df.CCI(&memberAddress, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "datetime", 23, 3, "",false,"","", "","","",false,"df.Timestamp")
+	updateProcessSqlName := new(df.ColumnSqlName)
+	//colsqlname dayoo UPDATE_PROCESS
+	updateProcessSqlName.ColumnSqlName = "UPDATE_PROCESS"
+	updateProcessSqlName.IrregularChar = false
+	MemberAddressDbm.ColumnUpdateProcess = df.CCI(&memberAddress, "UPDATE_PROCESS", updateProcessSqlName, "", "", "String.class", "updateProcess", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	updateUserSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo UPDATE_USER
 	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnUpdateUser = df.CCI(&memberAddress, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
+	MemberAddressDbm.ColumnUpdateUser = df.CCI(&memberAddress, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	versionNoSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo VERSION_NO
 	versionNoSqlName.ColumnSqlName = "VERSION_NO"
 	versionNoSqlName.IrregularChar = false
-	MemberAddressDbm.ColumnVersionNo = df.CCI(&memberAddress, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "BIGINT", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")
+	MemberAddressDbm.ColumnVersionNo = df.CCI(&memberAddress, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "bigint", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")
 
 	MemberAddressDbm.ColumnInfoList = new(df.List)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnMemberAddressId)
@@ -106,8 +117,10 @@ func Create_MemberAddressDbm() {
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnAddress)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnRegionId)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnRegisterDatetime)
+	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnRegisterProcess)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnRegisterUser)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnUpdateDatetime)
+	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnUpdateProcess)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnUpdateUser)
 	MemberAddressDbm.ColumnInfoList.Add(MemberAddressDbm.ColumnVersionNo)
 
@@ -120,10 +133,12 @@ func Create_MemberAddressDbm() {
 		MemberAddressDbm.ColumnInfoMap["address"]=4
 		MemberAddressDbm.ColumnInfoMap["regionId"]=5
 		MemberAddressDbm.ColumnInfoMap["registerDatetime"]=6
-		MemberAddressDbm.ColumnInfoMap["registerUser"]=7
-		MemberAddressDbm.ColumnInfoMap["updateDatetime"]=8
-		MemberAddressDbm.ColumnInfoMap["updateUser"]=9
-		MemberAddressDbm.ColumnInfoMap["versionNo"]=10
+		MemberAddressDbm.ColumnInfoMap["registerProcess"]=7
+		MemberAddressDbm.ColumnInfoMap["registerUser"]=8
+		MemberAddressDbm.ColumnInfoMap["updateDatetime"]=9
+		MemberAddressDbm.ColumnInfoMap["updateProcess"]=10
+		MemberAddressDbm.ColumnInfoMap["updateUser"]=11
+		MemberAddressDbm.ColumnInfoMap["versionNo"]=12
 	    MemberAddressDbm.PrimaryKey = true
     MemberAddressDbm.CompoundPrimaryKey = false
 	ui := new(df.UniqueInfo)

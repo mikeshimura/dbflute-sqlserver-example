@@ -3,7 +3,7 @@ package com.mssoftech.dbflute.cbean.nss;
 import com.mssoftech.dbflute.cbean.cq.MemberAddressCQ;
 
 /**
- * The nest select set-upper of member_address.
+ * The nest select set-upper of MEMBER_ADDRESS.
  * @author DBFlute(AutoGenerator)
  */
 public class MemberAddressNss {
@@ -20,7 +20,7 @@ public class MemberAddressNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member by my MEMBER_ID, named 'member'.
+     * MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -29,7 +29,7 @@ public class MemberAddressNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * region by my REGION_ID, named 'region'.
+     * REGION by my REGION_ID, named 'region'.
      */
     public void withRegion() {
         _query.xdoNss(() -> _query.queryRegion());

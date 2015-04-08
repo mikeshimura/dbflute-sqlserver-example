@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.allcommon.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The DB meta of summary_product. (Singleton)
+ * The DB meta of SUMMARY_PRODUCT. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
 public class SummaryProductDbm extends AbstractDBMeta {
@@ -54,10 +54,10 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "summary_product";
-    protected final String _tableDispName = "summary_product";
+    protected final String _tableDbName = "SUMMARY_PRODUCT";
+    protected final String _tableDispName = "SUMMARY_PRODUCT";
     protected final String _tablePropertyName = "summaryProduct";
-    protected final TableSqlName _tableSqlName = new TableSqlName("summary_product", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("exampledb.dbo.SUMMARY_PRODUCT", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -67,39 +67,39 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, false, false, true, "INT", 10, 0, "0", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, false, false, true, "int identity", 10, 0, null, false, null, null, null, null, null, false);
 //"int64"
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, null, String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, null, String.class, "productHandleCode", null, false, false, true, "nvarchar", 100, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, true, "char", 3, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
-//"df.MysqlNullTimestamp"
+    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "datetime", 23, 3, null, false, null, null, null, null, null, false);
+//"df.NullTimestamp"
 
     /**
-     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * PRODUCT_ID: {NotNull, int identity(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductId() { return _columnProductId; }
     /**
-     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_NAME: {NotNull, nvarchar(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductName() { return _columnProductName; }
     /**
-     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * PRODUCT_HANDLE_CODE: {NotNull, nvarchar(100)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductHandleCode() { return _columnProductHandleCode; }
     /**
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, char(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductStatusCode() { return _columnProductStatusCode; }
     /**
-     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
+     * LATEST_PURCHASE_DATETIME: {datetime(23, 3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnLatestPurchaseDatetime() { return _columnLatestPurchaseDatetime; }

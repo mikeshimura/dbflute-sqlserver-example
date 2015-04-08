@@ -24,18 +24,11 @@
     <component name="productCategoryBhv" class="com.mssoftech.dbflute.exbhv.ProductCategoryBhv"/>
     <component name="productStatusBhv" class="com.mssoftech.dbflute.exbhv.ProductStatusBhv"/>
     <component name="purchaseBhv" class="com.mssoftech.dbflute.exbhv.PurchaseBhv"/>
-    <component name="purchasePaymentBhv" class="com.mssoftech.dbflute.exbhv.PurchasePaymentBhv"/>
     <component name="regionBhv" class="com.mssoftech.dbflute.exbhv.RegionBhv"/>
     <component name="serviceRankBhv" class="com.mssoftech.dbflute.exbhv.ServiceRankBhv"/>
     <component name="summaryProductBhv" class="com.mssoftech.dbflute.exbhv.SummaryProductBhv"/>
     <component name="summaryWithdrawalBhv" class="com.mssoftech.dbflute.exbhv.SummaryWithdrawalBhv"/>
-    <component name="vendorConstraintNameAutoBarBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoBarBhv"/>
-    <component name="vendorConstraintNameAutoFooBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoFooBhv"/>
-    <component name="vendorConstraintNameAutoQuxBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoQuxBhv"/>
-    <component name="vendorConstraintNameAutoRefBhv" class="com.mssoftech.dbflute.exbhv.VendorConstraintNameAutoRefBhv"/>
-    <component name="vendorLargeDataBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataBhv"/>
-    <component name="vendorLargeDataRefBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataRefBhv"/>
-    <component name="vendorTheLongAndWindingTableAndColumnBhv" class="com.mssoftech.dbflute.exbhv.VendorTheLongAndWindingTableAndColumnBhv"/>
-    <component name="vendorTheLongAndWindingTableAndColumnRefBhv" class="com.mssoftech.dbflute.exbhv.VendorTheLongAndWindingTableAndColumnRefBhv"/>
+    <component name="vendorSymmetricBhv" class="com.mssoftech.dbflute.exbhv.VendorSymmetricBhv"/>
+    <component name="whiteDelimiterBhv" class="com.mssoftech.dbflute.exbhv.WhiteDelimiterBhv"/>
     <component name="withdrawalReasonBhv" class="com.mssoftech.dbflute.exbhv.WithdrawalReasonBhv"/>
 </components>

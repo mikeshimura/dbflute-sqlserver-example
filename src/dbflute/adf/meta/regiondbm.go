@@ -22,11 +22,11 @@ var RegionDbm *RegionDbm_T
 
 func Create_RegionDbm() {
 	RegionDbm = new(RegionDbm_T)
-	RegionDbm.TableDbName = "region"
-	RegionDbm.TableDispName = "region"
+	RegionDbm.TableDbName = "REGION"
+	RegionDbm.TableDispName = "REGION"
 	RegionDbm.TablePropertyName = "region"
 	RegionDbm.TableSqlName = new(df.TableSqlName)
-	RegionDbm.TableSqlName.TableSqlName = "region"
+	RegionDbm.TableSqlName.TableSqlName = "exampledb.dbo.REGION"
 	RegionDbm.TableSqlName.CorrespondingDbName = RegionDbm.TableDbName
 
 	var region df.DBMeta
@@ -36,12 +36,12 @@ func Create_RegionDbm() {
 	//colsqlname dayoo REGION_ID
 	regionIdSqlName.ColumnSqlName = "REGION_ID"
 	regionIdSqlName.IrregularChar = false
-	RegionDbm.ColumnRegionId = df.CCI(&region, "REGION_ID", regionIdSqlName, "", "", "Integer.class", "regionId", "", true, false,true, "INT", 10, 0, "",false,"","", "","memberAddressList","",false,"int64")
+	RegionDbm.ColumnRegionId = df.CCI(&region, "REGION_ID", regionIdSqlName, "", "", "Integer.class", "regionId", "", true, false,true, "int", 10, 0, "",false,"","", "","memberAddressList","",false,"int64")
 	regionNameSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo REGION_NAME
 	regionNameSqlName.ColumnSqlName = "REGION_NAME"
 	regionNameSqlName.IrregularChar = false
-	RegionDbm.ColumnRegionName = df.CCI(&region, "REGION_NAME", regionNameSqlName, "", "", "String.class", "regionName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
+	RegionDbm.ColumnRegionName = df.CCI(&region, "REGION_NAME", regionNameSqlName, "", "", "String.class", "regionName", "", false, false,true, "nvarchar", 50, 0, "",false,"","", "","","",false,"string")
 
 	RegionDbm.ColumnInfoList = new(df.List)
 	RegionDbm.ColumnInfoList.Add(RegionDbm.ColumnRegionId)

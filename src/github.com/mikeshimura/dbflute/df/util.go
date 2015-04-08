@@ -90,8 +90,8 @@ func (s *StringList) Get(i int) string {
 func (s *StringList) Size() int {
 	return len(s.data)
 }
-func CreateNullString(s string) sql.NullString {
-	var ns sql.NullString
+func CreateNullString(s string) NullString {
+	var ns NullString
 	ns.Valid = true
 	ns.String = s
 	return ns
@@ -157,5 +157,3 @@ func CreateMysqlDate(v time.Time) MysqlDate {
 	nt.Date = v
 	return nt
 }
-
-

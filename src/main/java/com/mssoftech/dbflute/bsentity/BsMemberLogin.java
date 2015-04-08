@@ -12,8 +12,7 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of member_login as TABLE. <br>
- * 会員ログイン情報: ログインするたびに登録されるログイン履歴。
+ * The entity of MEMBER_LOGIN as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_LOGIN_ID
@@ -31,7 +30,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     member_status, member
+ *     MEMBER_STATUS, MEMBER
  * 
  * [referrer table]
  *     
@@ -69,19 +68,19 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)} */
+    /** MEMBER_LOGIN_ID: {PK, ID, NotNull, bigint identity(19)} */
     protected Long _memberLoginId;
 
-    /** MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} */
+    /** MEMBER_ID: {NotNull, int(10), FK to MEMBER} */
     protected Integer _memberId;
 
-    /** LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)} */
+    /** LOGIN_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _loginDatetime;
 
-    /** MOBILE_LOGIN_FLG: {NotNull, INT(10)} */
+    /** MOBILE_LOGIN_FLG: {NotNull, int(10)} */
     protected Integer _mobileLoginFlg;
 
-    /** LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status} */
+    /** LOGIN_MEMBER_STATUS_CODE: {NotNull, char(3), FK to MEMBER_STATUS} */
     protected String _loginMemberStatusCode;
 
     // ===================================================================================
@@ -94,7 +93,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "member_login";
+        return "MEMBER_LOGIN";
     }
 
     // ===================================================================================
@@ -106,27 +105,14 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
         return true;
     }
 
-    /**
-     * To be unique by the unique column. <br>
-     * You can update the entity by the key when entity update (NOT batch update).
-     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
-     * @param loginDatetime : +UQ, IX, NotNull, DATETIME(19). (NotNull)
-     */
-    public void uniqueBy(Integer memberId, java.time.LocalDateTime loginDatetime) {
-        __uniqueDrivenProperties.clear();
-        __uniqueDrivenProperties.addPropertyName("memberId");
-        __uniqueDrivenProperties.addPropertyName("loginDatetime");
-        setMemberId(memberId);setLoginDatetime(loginDatetime);
-    }
-
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. */
+    /** MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. */
     protected OptionalEntity<MemberStatus> _memberStatus;
 
     /**
-     * [get] member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. <br>
+     * [get] MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -136,18 +122,18 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * [set] MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
      * @param memberStatus The entity of foreign property 'memberStatus'. (NullAllowed)
      */
     public void setMemberStatus(OptionalEntity<MemberStatus> memberStatus) {
         _memberStatus = memberStatus;
     }
 
-    /** member by my MEMBER_ID, named 'member'. */
+    /** MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] member by my MEMBER_ID, named 'member'. <br>
+     * [get] MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -157,7 +143,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] member by my MEMBER_ID, named 'member'.
+     * [set] MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
@@ -243,8 +229,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * 会員ログインID
+     * [get] MEMBER_LOGIN_ID: {PK, ID, NotNull, bigint identity(19)} <br>
      * @return The value of the column 'MEMBER_LOGIN_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getMemberLoginId() {
@@ -253,8 +238,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * 会員ログインID
+     * [set] MEMBER_LOGIN_ID: {PK, ID, NotNull, bigint identity(19)} <br>
      * @param memberLoginId The value of the column 'MEMBER_LOGIN_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberLoginId(Long memberLoginId) {
@@ -263,8 +247,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
-     * 会員ID
+     * [get] MEMBER_ID: {NotNull, int(10), FK to MEMBER} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -273,8 +256,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
-     * 会員ID
+     * [set] MEMBER_ID: {NotNull, int(10), FK to MEMBER} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -283,8 +265,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)} <br>
-     * ログイン日時: ログインした瞬間の日時。
+     * [get] LOGIN_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'LOGIN_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getLoginDatetime() {
@@ -293,8 +274,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)} <br>
-     * ログイン日時: ログインした瞬間の日時。
+     * [set] LOGIN_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setLoginDatetime(java.time.LocalDateTime loginDatetime) {
@@ -303,8 +283,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] MOBILE_LOGIN_FLG: {NotNull, INT(10)} <br>
-     * モバイルログインフラグ: モバイル機器からのログインか否か。
+     * [get] MOBILE_LOGIN_FLG: {NotNull, int(10)} <br>
      * @return The value of the column 'MOBILE_LOGIN_FLG'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMobileLoginFlg() {
@@ -313,8 +292,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] MOBILE_LOGIN_FLG: {NotNull, INT(10)} <br>
-     * モバイルログインフラグ: モバイル機器からのログインか否か。
+     * [set] MOBILE_LOGIN_FLG: {NotNull, int(10)} <br>
      * @param mobileLoginFlg The value of the column 'MOBILE_LOGIN_FLG'. (basically NotNull if update: for the constraint)
      */
     public void setMobileLoginFlg(Integer mobileLoginFlg) {
@@ -323,8 +301,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status} <br>
-     * ログイン会員ステータスコード: ログイン時の会員ステータス
+     * [get] LOGIN_MEMBER_STATUS_CODE: {NotNull, char(3), FK to MEMBER_STATUS} <br>
      * @return The value of the column 'LOGIN_MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getLoginMemberStatusCode() {
@@ -333,8 +310,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status} <br>
-     * ログイン会員ステータスコード: ログイン時の会員ステータス
+     * [set] LOGIN_MEMBER_STATUS_CODE: {NotNull, char(3), FK to MEMBER_STATUS} <br>
      * @param loginMemberStatusCode The value of the column 'LOGIN_MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setLoginMemberStatusCode(String loginMemberStatusCode) {

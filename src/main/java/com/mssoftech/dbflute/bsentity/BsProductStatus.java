@@ -10,8 +10,7 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of product_status as TABLE. <br>
- * 商品ステータス
+ * The entity of PRODUCT_STATUS as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PRODUCT_STATUS_CODE
@@ -32,7 +31,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     product
+ *     PRODUCT
  * 
  * [foreign property]
  *     
@@ -63,13 +62,13 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)} */
+    /** PRODUCT_STATUS_CODE: {PK, NotNull, char(3)} */
     protected String _productStatusCode;
 
-    /** PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} */
+    /** PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)} */
     protected String _productStatusName;
 
-    /** DISPLAY_ORDER: {UQ, NotNull, INT(10)} */
+    /** DISPLAY_ORDER: {UQ, NotNull, int(10)} */
     protected Integer _displayOrder;
 
     // ===================================================================================
@@ -82,7 +81,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "product_status";
+        return "PRODUCT_STATUS";
     }
 
     // ===================================================================================
@@ -97,7 +96,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, int(10). (NotNull)
      */
     public void uniqueBy(Integer displayOrder) {
         __uniqueDrivenProperties.clear();
@@ -111,11 +110,11 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** product by PRODUCT_STATUS_CODE, named 'productList'. */
+    /** PRODUCT by PRODUCT_STATUS_CODE, named 'productList'. */
     protected List<Product> _productList;
 
     /**
-     * [get] product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [get] PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The entity list of referrer property 'productList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Product> getProductList() {
@@ -124,7 +123,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [set] PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @param productList The entity list of referrer property 'productList'. (NullAllowed)
      */
     public void setProductList(List<Product> productList) {
@@ -198,8 +197,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 商品ステータスコード
+     * [get] PRODUCT_STATUS_CODE: {PK, NotNull, char(3)} <br>
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
@@ -208,8 +206,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 商品ステータスコード
+     * [set] PRODUCT_STATUS_CODE: {PK, NotNull, char(3)} <br>
      * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
@@ -218,8 +215,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
-     * 商品ステータス名称
+     * [get] PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)} <br>
      * @return The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusName() {
@@ -228,8 +224,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
-     * 商品ステータス名称
+     * [set] PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)} <br>
      * @param productStatusName The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusName(String productStatusName) {
@@ -238,8 +233,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
-     * 表示順
+     * [get] DISPLAY_ORDER: {UQ, NotNull, int(10)} <br>
      * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -248,8 +242,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
-     * 表示順
+     * [set] DISPLAY_ORDER: {UQ, NotNull, int(10)} <br>
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

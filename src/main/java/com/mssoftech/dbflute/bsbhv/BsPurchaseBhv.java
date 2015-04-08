@@ -20,13 +20,13 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of purchase as TABLE. <br>
+ * The behavior of PURCHASE as TABLE. <br>
  * <pre>
  * [primary key]
  *     PURCHASE_ID
  *
  * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
  *
  * [sequence]
  *     
@@ -38,16 +38,16 @@ import com.mssoftech.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, product
+ *     MEMBER, PRODUCT
  *
  * [referrer table]
- *     purchase_payment
+ *     
  *
  * [foreign property]
  *     member, product
  *
  * [referrer property]
- *     purchasePaymentList
+ *     
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -65,7 +65,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     /** {@inheritDoc} */
     public PurchaseDbm asDBMeta() { return PurchaseDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "purchase"; }
+    public String asTableDbName() { return "PURCHASE"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Select the entity by the primary-key value.
-     * @param purchaseId : PK, ID, NotNull, BIGINT(19). (NotNull)
+     * @param purchaseId : PK, ID, NotNull, bigint identity(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -182,33 +182,6 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     protected PurchaseCB xprepareCBAsPK(Long purchaseId) {
         assertObjectNotNull("purchaseId", purchaseId);
         return newConditionBean().acceptPK(purchaseId);
-    }
-
-    /**
-     * Select the entity by the unique-key value.
-     * @param memberId : UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
-     * @param productId : +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
-     * @param purchaseDatetime : +UQ, IX+, NotNull, DATETIME(19). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<Purchase> selectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        return facadeSelectByUniqueOf(memberId, productId, purchaseDatetime);
-    }
-
-    protected OptionalEntity<Purchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        return doSelectByUniqueOf(memberId, productId, purchaseDatetime, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, productId, purchaseDatetime), tp), memberId, productId, purchaseDatetime);
-    }
-
-    protected PurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
-        return newConditionBean().acceptUniqueOf(memberId, productId, purchaseDatetime);
     }
 
     // ===================================================================================
@@ -384,70 +357,6 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     public void load(Purchase purchase, ReferrerLoaderHandler<LoaderOfPurchase> loaderLambda) {
         xassLRArg(purchase, loaderLambda);
         loaderLambda.handle(new LoaderOfPurchase().ready(xnewLRAryLs(purchase), _behaviorSelector));
-    }
-
-    /**
-     * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
-     * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">paymentCB</span>.setupSelect...
-     *     <span style="color: #553000">paymentCB</span>.query().set...
-     *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * <span style="color: #70226C">for</span> (Purchase purchase : <span style="color: #553000">purchaseList</span>) {
-     *     ... = purchase.<span style="color: #CC4747">getPurchasePaymentList()</span>;
-     * }
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setPurchaseId_InScope(pkList);
-     * cb.query().addOrderBy_PurchaseId_Asc();
-     * </pre>
-     * @param purchaseList The entity list of purchase. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(List<Purchase> purchaseList, ReferrerConditionSetupper<PurchasePaymentCB> refCBLambda) {
-        xassLRArg(purchaseList, refCBLambda);
-        return doLoadPurchasePayment(purchaseList, new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
-    }
-
-    /**
-     * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
-     * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">paymentCB</span>.setupSelect...
-     *     <span style="color: #553000">paymentCB</span>.query().set...
-     *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getPurchasePaymentList()</span>;
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setPurchaseId_InScope(pkList);
-     * cb.query().addOrderBy_PurchaseId_Asc();
-     * </pre>
-     * @param purchase The entity of purchase. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(Purchase purchase, ReferrerConditionSetupper<PurchasePaymentCB> refCBLambda) {
-        xassLRArg(purchase, refCBLambda);
-        return doLoadPurchasePayment(xnewLRLs(purchase), new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
-    }
-
-    protected NestedReferrerListGateway<PurchasePayment> doLoadPurchasePayment(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> option) {
-        return helpLoadReferrerInternally(purchaseList, option, "purchasePaymentList");
     }
 
     // ===================================================================================

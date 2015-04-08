@@ -1,4 +1,114 @@
 map:{
+    ; 2015/04/07 22:06:21 = map:{
+        ; diffDate = 2015/04/07 22:06:21
+        ; tableCount = map:{
+            ; next = 18
+            ; previous = 19
+        }
+        ; tableDiff = map:{
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2015/04/07 22:04:55 = map:{
+        ; diffDate = 2015/04/07 22:04:55
+        ; tableCount = map:{
+            ; next = 19
+            ; previous = 3
+        }
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = ADD
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = ADD
+            }
+            ; MEMBER_LOGIN = map:{
+                ; tableName = MEMBER_LOGIN
+                ; diffType = ADD
+            }
+            ; MEMBER_SECURITY = map:{
+                ; tableName = MEMBER_SECURITY
+                ; diffType = ADD
+            }
+            ; MEMBER_SERVICE = map:{
+                ; tableName = MEMBER_SERVICE
+                ; diffType = ADD
+            }
+            ; MEMBER_STATUS = map:{
+                ; tableName = MEMBER_STATUS
+                ; diffType = ADD
+            }
+            ; MEMBER_WITHDRAWAL = map:{
+                ; tableName = MEMBER_WITHDRAWAL
+                ; diffType = ADD
+            }
+            ; PRODUCT = map:{
+                ; tableName = PRODUCT
+                ; diffType = ADD
+            }
+            ; PRODUCT_CATEGORY = map:{
+                ; tableName = PRODUCT_CATEGORY
+                ; diffType = ADD
+            }
+            ; PRODUCT_STATUS = map:{
+                ; tableName = PRODUCT_STATUS
+                ; diffType = ADD
+            }
+            ; PURCHASE = map:{
+                ; tableName = PURCHASE
+                ; diffType = ADD
+            }
+            ; REGION = map:{
+                ; tableName = REGION
+                ; diffType = ADD
+            }
+            ; SERVICE_RANK = map:{
+                ; tableName = SERVICE_RANK
+                ; diffType = ADD
+            }
+            ; SUMMARY_PRODUCT = map:{
+                ; tableName = SUMMARY_PRODUCT
+                ; diffType = ADD
+            }
+            ; SUMMARY_WITHDRAWAL = map:{
+                ; tableName = SUMMARY_WITHDRAWAL
+                ; diffType = ADD
+            }
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = ADD
+            }
+            ; VENDOR_SYMMETRIC = map:{
+                ; tableName = VENDOR_SYMMETRIC
+                ; diffType = ADD
+            }
+            ; WHITE_DELIMITER = map:{
+                ; tableName = WHITE_DELIMITER
+                ; diffType = ADD
+            }
+            ; WITHDRAWAL_REASON = map:{
+                ; tableName = WITHDRAWAL_REASON
+                ; diffType = ADD
+            }
+            ; li_tbl = map:{
+                ; tableName = li_tbl
+                ; diffType = DELETE
+            }
+            ; nopk = map:{
+                ; tableName = nopk
+                ; diffType = DELETE
+            }
+            ; test1 = map:{
+                ; tableName = test1
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2015/04/05 20:43:17 = map:{
         ; diffDate = 2015/04/05 20:43:17
         ; tableCount = map:{

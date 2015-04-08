@@ -20,25 +20,25 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of member_address as TABLE. <br>
+ * The behavior of MEMBER_ADDRESS as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_ADDRESS_ID
  *
  * [column]
- *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
  *
  * [identity]
- *     MEMBER_ADDRESS_ID
+ *     
  *
  * [version-no]
  *     VERSION_NO
  *
  * [foreign table]
- *     member, region
+ *     MEMBER, REGION
  *
  * [referrer table]
  *     
@@ -65,7 +65,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     /** {@inheritDoc} */
     public MemberAddressDbm asDBMeta() { return MemberAddressDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "member_address"; }
+    public String asTableDbName() { return "MEMBER_ADDRESS"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberAddressId : PK, ID, NotNull, INT(10). (NotNull)
+     * @param memberAddressId : PK, NotNull, int(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,26 +186,26 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the unique-key value.
-     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
-     * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
+     * @param memberId : UQ+, NotNull, int(10), FK to MEMBER. (NotNull)
+     * @param validBeginDate : +UQ, NotNull, date(10). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<MemberAddress> selectByUniqueOf(Integer memberId, java.time.LocalDate validBeginDate) {
+    public OptionalEntity<MemberAddress> selectByUniqueOf(Integer memberId, String validBeginDate) {
         return facadeSelectByUniqueOf(memberId, validBeginDate);
     }
 
-    protected OptionalEntity<MemberAddress> facadeSelectByUniqueOf(Integer memberId, java.time.LocalDate validBeginDate) {
+    protected OptionalEntity<MemberAddress> facadeSelectByUniqueOf(Integer memberId, String validBeginDate) {
         return doSelectByUniqueOf(memberId, validBeginDate, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends MemberAddress> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, java.time.LocalDate validBeginDate, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends MemberAddress> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, String validBeginDate, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, validBeginDate), tp), memberId, validBeginDate);
     }
 
-    protected MemberAddressCB xprepareCBAsUniqueOf(Integer memberId, java.time.LocalDate validBeginDate) {
+    protected MemberAddressCB xprepareCBAsUniqueOf(Integer memberId, String validBeginDate) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("validBeginDate", validBeginDate);
         return newConditionBean().acceptUniqueOf(memberId, validBeginDate);
     }

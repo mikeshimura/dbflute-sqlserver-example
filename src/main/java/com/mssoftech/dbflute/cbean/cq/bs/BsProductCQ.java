@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of product.
+ * The base condition-query of PRODUCT.
  * @author DBFlute(AutoGenerator)
  */
 public class BsProductCQ extends AbstractBsProductCQ {
@@ -35,7 +35,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from product) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from PRODUCT) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -58,7 +58,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join product on ... and FOO = [value] ...}
+     * {select ... from ... left outer join PRODUCT on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
@@ -95,14 +95,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_ID: {PK, ID, NotNull, INT(10)}
+     * PRODUCT_ID: {PK, ID, NotNull, int identity(10)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_ID: {PK, ID, NotNull, INT(10)}
+     * PRODUCT_ID: {PK, ID, NotNull, int identity(10)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
@@ -115,14 +115,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_NAME: {IX, NotNull, VARCHAR(50)}
+     * PRODUCT_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_NAME: {IX, NotNull, VARCHAR(50)}
+     * PRODUCT_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
@@ -135,14 +135,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
+     * PRODUCT_HANDLE_CODE: {UQ, NotNull, nvarchar(100)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
+     * PRODUCT_HANDLE_CODE: {UQ, NotNull, nvarchar(100)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
@@ -155,14 +155,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category}
+     * PRODUCT_CATEGORY_CODE: {NotNull, char(3), FK to PRODUCT_CATEGORY}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("PRODUCT_CATEGORY_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category}
+     * PRODUCT_CATEGORY_CODE: {NotNull, char(3), FK to PRODUCT_CATEGORY}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("PRODUCT_CATEGORY_CODE"); return this; }
@@ -175,14 +175,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status}
+     * PRODUCT_STATUS_CODE: {NotNull, char(3), FK to PRODUCT_STATUS}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status}
+     * PRODUCT_STATUS_CODE: {NotNull, char(3), FK to PRODUCT_STATUS}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
@@ -195,14 +195,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * REGULAR_PRICE: {NotNull, INT(10)}
+     * REGULAR_PRICE: {NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegularPrice_Asc() { regOBA("REGULAR_PRICE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGULAR_PRICE: {NotNull, INT(10)}
+     * REGULAR_PRICE: {NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegularPrice_Desc() { regOBD("REGULAR_PRICE"); return this; }
@@ -215,14 +215,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -235,17 +235,37 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * REGISTER_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * REGISTER_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
+
+    protected ConditionValue _registerProcess;
+    public ConditionValue xdfgetRegisterProcess()
+    { if (_registerProcess == null) { _registerProcess = nCV(); }
+      return _registerProcess; }
+    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * REGISTER_PROCESS: {NotNull, nvarchar(200)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_RegisterProcess_Asc() { regOBA("REGISTER_PROCESS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * REGISTER_PROCESS: {NotNull, nvarchar(200)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_RegisterProcess_Desc() { regOBD("REGISTER_PROCESS"); return this; }
 
     protected ConditionValue _updateDatetime;
     public ConditionValue xdfgetUpdateDatetime()
@@ -255,14 +275,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -275,17 +295,37 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * UPDATE_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * UPDATE_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
+
+    protected ConditionValue _updateProcess;
+    public ConditionValue xdfgetUpdateProcess()
+    { if (_updateProcess == null) { _updateProcess = nCV(); }
+      return _updateProcess; }
+    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * UPDATE_PROCESS: {NotNull, nvarchar(200)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_UpdateProcess_Asc() { regOBA("UPDATE_PROCESS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * UPDATE_PROCESS: {NotNull, nvarchar(200)}
+     * @return this. (NotNull)
+     */
+    public BsProductCQ addOrderBy_UpdateProcess_Desc() { regOBD("UPDATE_PROCESS"); return this; }
 
     protected ConditionValue _versionNo;
     public ConditionValue xdfgetVersionNo()
@@ -295,14 +335,14 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
+     * VERSION_NO: {NotNull, bigint(19)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
+     * VERSION_NO: {NotNull, bigint(19)}
      * @return this. (NotNull)
      */
     public BsProductCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
@@ -361,7 +401,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
+     * PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCategoryCQ queryProductCategory() {
@@ -373,7 +413,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
         return xgetQueRlMap(prop);
     }
     protected ProductCategoryCQ xcreateQueryProductCategory() {
-        String nrp = xresolveNRP("product", "productCategory"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        String nrp = xresolveNRP("PRODUCT", "productCategory"); String jan = xresolveJAN(nrp, xgetNNLvl());
         return xinitRelCQ(new ProductCategoryCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productCategory", nrp);
     }
     protected void xsetupOuterJoinProductCategory() { xregOutJo("productCategory"); }
@@ -381,7 +421,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductStatusCQ queryProductStatus() {
@@ -393,7 +433,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
         return xgetQueRlMap(prop);
     }
     protected ProductStatusCQ xcreateQueryProductStatus() {
-        String nrp = xresolveNRP("product", "productStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        String nrp = xresolveNRP("PRODUCT", "productStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
         return xinitRelCQ(new ProductStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productStatus", nrp);
     }
     protected void xsetupOuterJoinProductStatus() { xregOutJo("productStatus"); }

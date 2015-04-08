@@ -19,7 +19,7 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of summary_withdrawal as VIEW. <br>
+ * The behavior of SUMMARY_WITHDRAWAL as VIEW. <br>
  * <pre>
  * [primary key]
  *     
@@ -64,7 +64,7 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
     /** {@inheritDoc} */
     public SummaryWithdrawalDbm asDBMeta() { return SummaryWithdrawalDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "summary_withdrawal"; }
+    public String asTableDbName() { return "SUMMARY_WITHDRAWAL"; }
 
     // ===================================================================================
     //                                                                        New Instance

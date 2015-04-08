@@ -7,13 +7,13 @@ import com.mssoftech.dbflute.exbhv.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The referrer loader of member_withdrawal as TABLE. <br>
+ * The referrer loader of MEMBER_WITHDRAWAL as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_ID
  *
  * [column]
- *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
@@ -22,10 +22,10 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  *
  * [version-no]
- *     
+ *     VERSION_NO
  *
  * [foreign table]
- *     member, withdrawal_reason
+ *     MEMBER, WITHDRAWAL_REASON
  *
  * [referrer table]
  *     

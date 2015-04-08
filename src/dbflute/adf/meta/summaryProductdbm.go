@@ -25,11 +25,11 @@ var SummaryProductDbm *SummaryProductDbm_T
 
 func Create_SummaryProductDbm() {
 	SummaryProductDbm = new(SummaryProductDbm_T)
-	SummaryProductDbm.TableDbName = "summary_product"
-	SummaryProductDbm.TableDispName = "summary_product"
+	SummaryProductDbm.TableDbName = "SUMMARY_PRODUCT"
+	SummaryProductDbm.TableDispName = "SUMMARY_PRODUCT"
 	SummaryProductDbm.TablePropertyName = "summaryProduct"
 	SummaryProductDbm.TableSqlName = new(df.TableSqlName)
-	SummaryProductDbm.TableSqlName.TableSqlName = "summary_product"
+	SummaryProductDbm.TableSqlName.TableSqlName = "exampledb.dbo.SUMMARY_PRODUCT"
 	SummaryProductDbm.TableSqlName.CorrespondingDbName = SummaryProductDbm.TableDbName
 
 	var summaryProduct df.DBMeta
@@ -39,27 +39,27 @@ func Create_SummaryProductDbm() {
 	//colsqlname dayoo PRODUCT_ID
 	productIdSqlName.ColumnSqlName = "PRODUCT_ID"
 	productIdSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductId = df.CCI(&summaryProduct, "PRODUCT_ID", productIdSqlName, "", "", "Integer.class", "productId", "", false, false,true, "INT", 10, 0, "0",false,"","", "","","",false,"int64")
+	SummaryProductDbm.ColumnProductId = df.CCI(&summaryProduct, "PRODUCT_ID", productIdSqlName, "", "", "Integer.class", "productId", "", false, false,true, "int identity", 10, 0, "",false,"","", "","","",false,"int64")
 	productNameSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo PRODUCT_NAME
 	productNameSqlName.ColumnSqlName = "PRODUCT_NAME"
 	productNameSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductName = df.CCI(&summaryProduct, "PRODUCT_NAME", productNameSqlName, "", "", "String.class", "productName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
+	SummaryProductDbm.ColumnProductName = df.CCI(&summaryProduct, "PRODUCT_NAME", productNameSqlName, "", "", "String.class", "productName", "", false, false,true, "nvarchar", 50, 0, "",false,"","", "","","",false,"string")
 	productHandleCodeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo PRODUCT_HANDLE_CODE
 	productHandleCodeSqlName.ColumnSqlName = "PRODUCT_HANDLE_CODE"
 	productHandleCodeSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductHandleCode = df.CCI(&summaryProduct, "PRODUCT_HANDLE_CODE", productHandleCodeSqlName, "", "", "String.class", "productHandleCode", "", false, false,true, "VARCHAR", 100, 0, "",false,"","", "","","",false,"string")
+	SummaryProductDbm.ColumnProductHandleCode = df.CCI(&summaryProduct, "PRODUCT_HANDLE_CODE", productHandleCodeSqlName, "", "", "String.class", "productHandleCode", "", false, false,true, "nvarchar", 100, 0, "",false,"","", "","","",false,"string")
 	productStatusCodeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo PRODUCT_STATUS_CODE
 	productStatusCodeSqlName.ColumnSqlName = "PRODUCT_STATUS_CODE"
 	productStatusCodeSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductStatusCode = df.CCI(&summaryProduct, "PRODUCT_STATUS_CODE", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", false, false,true, "CHAR", 3, 0, "",false,"","", "","","",false,"string")
+	SummaryProductDbm.ColumnProductStatusCode = df.CCI(&summaryProduct, "PRODUCT_STATUS_CODE", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", false, false,true, "char", 3, 0, "",false,"","", "","","",false,"string")
 	latestPurchaseDatetimeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo LATEST_PURCHASE_DATETIME
 	latestPurchaseDatetimeSqlName.ColumnSqlName = "LATEST_PURCHASE_DATETIME"
 	latestPurchaseDatetimeSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnLatestPurchaseDatetime = df.CCI(&summaryProduct, "LATEST_PURCHASE_DATETIME", latestPurchaseDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "latestPurchaseDatetime", "", false, false,false, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlNullTimestamp")
+	SummaryProductDbm.ColumnLatestPurchaseDatetime = df.CCI(&summaryProduct, "LATEST_PURCHASE_DATETIME", latestPurchaseDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "latestPurchaseDatetime", "", false, false,false, "datetime", 23, 3, "",false,"","", "","","",false,"df.NullTimestamp")
 
 	SummaryProductDbm.ColumnInfoList = new(df.List)
 	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnProductId)

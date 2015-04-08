@@ -3,7 +3,7 @@ package com.mssoftech.dbflute.cbean.nss;
 import com.mssoftech.dbflute.cbean.cq.MemberWithdrawalCQ;
 
 /**
- * The nest select set-upper of member_withdrawal.
+ * The nest select set-upper of MEMBER_WITHDRAWAL.
  * @author DBFlute(AutoGenerator)
  */
 public class MemberWithdrawalNss {
@@ -20,7 +20,7 @@ public class MemberWithdrawalNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member by my MEMBER_ID, named 'member'.
+     * MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -29,7 +29,7 @@ public class MemberWithdrawalNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      */
     public void withWithdrawalReason() {
         _query.xdoNss(() -> _query.queryWithdrawalReason());

@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of member.
+ * The condition-query for in-line of MEMBER.
  * @author DBFlute(AutoGenerator)
  */
 public class MemberCIQ extends AbstractBsMemberCQ {
@@ -99,8 +99,10 @@ public class MemberCIQ extends AbstractBsMemberCQ {
     protected ConditionValue xgetCValueBirthdate() { return _myCQ.xdfgetBirthdate(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return _myCQ.xdfgetRegisterProcess(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return _myCQ.xdfgetUpdateProcess(); }
     protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(MemberCQ sq)

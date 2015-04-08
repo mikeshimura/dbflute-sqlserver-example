@@ -211,10 +211,6 @@ func (q *ProductCategoryCQ) SetParentCategoryCode_IsNull() *ProductCategoryCQ {
 	q.regParentCategoryCode(df.CK_ISN_C, 0)
 	return q
 }
-func (q *ProductCategoryCQ) SetParentCategoryCode_IsNullOrEmpty() *ProductCategoryCQ {
-	q.regParentCategoryCode(df.CK_ISNOE_C, 0)
-	return q
-}
 func (q *ProductCategoryCQ) SetParentCategoryCode_IsNotNull() *ProductCategoryCQ {
 	q.regParentCategoryCode(df.CK_ISNN_C, 0)
 	return q

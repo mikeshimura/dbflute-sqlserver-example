@@ -23,11 +23,11 @@ var ProductCategoryDbm *ProductCategoryDbm_T
 
 func Create_ProductCategoryDbm() {
 	ProductCategoryDbm = new(ProductCategoryDbm_T)
-	ProductCategoryDbm.TableDbName = "product_category"
-	ProductCategoryDbm.TableDispName = "product_category"
+	ProductCategoryDbm.TableDbName = "PRODUCT_CATEGORY"
+	ProductCategoryDbm.TableDispName = "PRODUCT_CATEGORY"
 	ProductCategoryDbm.TablePropertyName = "productCategory"
 	ProductCategoryDbm.TableSqlName = new(df.TableSqlName)
-	ProductCategoryDbm.TableSqlName.TableSqlName = "product_category"
+	ProductCategoryDbm.TableSqlName.TableSqlName = "exampledb.dbo.PRODUCT_CATEGORY"
 	ProductCategoryDbm.TableSqlName.CorrespondingDbName = ProductCategoryDbm.TableDbName
 
 	var productCategory df.DBMeta
@@ -37,17 +37,17 @@ func Create_ProductCategoryDbm() {
 	//colsqlname dayoo PRODUCT_CATEGORY_CODE
 	productCategoryCodeSqlName.ColumnSqlName = "PRODUCT_CATEGORY_CODE"
 	productCategoryCodeSqlName.IrregularChar = false
-	ProductCategoryDbm.ColumnProductCategoryCode = df.CCI(&productCategory, "PRODUCT_CATEGORY_CODE", productCategoryCodeSqlName, "", "", "String.class", "productCategoryCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","productList,productCategorySelfList","",false,"string")
+	ProductCategoryDbm.ColumnProductCategoryCode = df.CCI(&productCategory, "PRODUCT_CATEGORY_CODE", productCategoryCodeSqlName, "", "", "String.class", "productCategoryCode", "", true, false,true, "char", 3, 0, "",false,"","", "","productList,productCategorySelfList","",false,"string")
 	productCategoryNameSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo PRODUCT_CATEGORY_NAME
 	productCategoryNameSqlName.ColumnSqlName = "PRODUCT_CATEGORY_NAME"
 	productCategoryNameSqlName.IrregularChar = false
-	ProductCategoryDbm.ColumnProductCategoryName = df.CCI(&productCategory, "PRODUCT_CATEGORY_NAME", productCategoryNameSqlName, "", "", "String.class", "productCategoryName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
+	ProductCategoryDbm.ColumnProductCategoryName = df.CCI(&productCategory, "PRODUCT_CATEGORY_NAME", productCategoryNameSqlName, "", "", "String.class", "productCategoryName", "", false, false,true, "nvarchar", 50, 0, "",false,"","", "","","",false,"string")
 	parentCategoryCodeSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo PARENT_CATEGORY_CODE
 	parentCategoryCodeSqlName.ColumnSqlName = "PARENT_CATEGORY_CODE"
 	parentCategoryCodeSqlName.IrregularChar = false
-	ProductCategoryDbm.ColumnParentCategoryCode = df.CCI(&productCategory, "PARENT_CATEGORY_CODE", parentCategoryCodeSqlName, "", "", "String.class", "parentCategoryCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "productCategorySelf","","",false,"sql.NullString")
+	ProductCategoryDbm.ColumnParentCategoryCode = df.CCI(&productCategory, "PARENT_CATEGORY_CODE", parentCategoryCodeSqlName, "", "", "String.class", "parentCategoryCode", "", false, false,false, "char", 3, 0, "",false,"","", "productCategorySelf","","",false,"df.NullString")
 
 	ProductCategoryDbm.ColumnInfoList = new(df.List)
 	ProductCategoryDbm.ColumnInfoList.Add(ProductCategoryDbm.ColumnProductCategoryCode)

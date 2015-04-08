@@ -10,9 +10,11 @@ type MemberSecurity struct {
 	reminderQuestion string
 	reminderAnswer string
 	reminderUseCount int64
-	registerDatetime df.MysqlTimestamp
+	registerDatetime df.Timestamp
+	registerProcess string
 	registerUser string
-	updateDatetime df.MysqlTimestamp
+	updateDatetime df.Timestamp
+	updateProcess string
 	updateUser string
 	versionNo int64
 	df.BaseEntity
@@ -39,14 +41,20 @@ func (l *MemberSecurity) GetReminderAnswer () string {
 func (l *MemberSecurity) GetReminderUseCount () int64 {
 	return l.reminderUseCount
 }
-func (l *MemberSecurity) GetRegisterDatetime () df.MysqlTimestamp {
+func (l *MemberSecurity) GetRegisterDatetime () df.Timestamp {
 	return l.registerDatetime
+}
+func (l *MemberSecurity) GetRegisterProcess () string {
+	return l.registerProcess
 }
 func (l *MemberSecurity) GetRegisterUser () string {
 	return l.registerUser
 }
-func (l *MemberSecurity) GetUpdateDatetime () df.MysqlTimestamp {
+func (l *MemberSecurity) GetUpdateDatetime () df.Timestamp {
 	return l.updateDatetime
+}
+func (l *MemberSecurity) GetUpdateProcess () string {
+	return l.updateProcess
 }
 func (l *MemberSecurity) GetUpdateUser () string {
 	return l.updateUser
@@ -56,17 +64,19 @@ func (l *MemberSecurity) GetVersionNo () int64 {
 }
 
 func (t *MemberSecurity) GetAsInterfaceArray() []interface{} {
-	i := make([]interface{}, 10)
+	i := make([]interface{}, 12)
 	i[0] = &(t.memberId)
 	i[1] = &(t.loginPassword)
 	i[2] = &(t.reminderQuestion)
 	i[3] = &(t.reminderAnswer)
 	i[4] = &(t.reminderUseCount)
 	i[5] = &(t.registerDatetime)
-	i[6] = &(t.registerUser)
-	i[7] = &(t.updateDatetime)
-	i[8] = &(t.updateUser)
-	i[9] = &(t.versionNo)
+	i[6] = &(t.registerProcess)
+	i[7] = &(t.registerUser)
+	i[8] = &(t.updateDatetime)
+	i[9] = &(t.updateProcess)
+	i[10] = &(t.updateUser)
+	i[11] = &(t.versionNo)
 	return i
 }
 
@@ -101,17 +111,25 @@ func (t *MemberSecurity) SetReminderUseCount(reminderUseCount int64) {
 	t.AddPropertyName("reminderUseCount")
 	t.reminderUseCount = reminderUseCount
 }
-func (t *MemberSecurity) SetRegisterDatetime(registerDatetime df.MysqlTimestamp) {
+func (t *MemberSecurity) SetRegisterDatetime(registerDatetime df.Timestamp) {
 	t.AddPropertyName("registerDatetime")
 	t.registerDatetime = registerDatetime
+}
+func (t *MemberSecurity) SetRegisterProcess(registerProcess string) {
+	t.AddPropertyName("registerProcess")
+	t.registerProcess = registerProcess
 }
 func (t *MemberSecurity) SetRegisterUser(registerUser string) {
 	t.AddPropertyName("registerUser")
 	t.registerUser = registerUser
 }
-func (t *MemberSecurity) SetUpdateDatetime(updateDatetime df.MysqlTimestamp) {
+func (t *MemberSecurity) SetUpdateDatetime(updateDatetime df.Timestamp) {
 	t.AddPropertyName("updateDatetime")
 	t.updateDatetime = updateDatetime
+}
+func (t *MemberSecurity) SetUpdateProcess(updateProcess string) {
+	t.AddPropertyName("updateProcess")
+	t.updateProcess = updateProcess
 }
 func (t *MemberSecurity) SetUpdateUser(updateUser string) {
 	t.AddPropertyName("updateUser")

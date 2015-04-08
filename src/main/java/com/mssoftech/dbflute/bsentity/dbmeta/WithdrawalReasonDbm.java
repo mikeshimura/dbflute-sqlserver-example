@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.allcommon.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The DB meta of withdrawal_reason. (Singleton)
+ * The DB meta of WITHDRAWAL_REASON. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
 public class WithdrawalReasonDbm extends AbstractDBMeta {
@@ -52,10 +52,10 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "withdrawal_reason";
-    protected final String _tableDispName = "withdrawal_reason";
+    protected final String _tableDbName = "WITHDRAWAL_REASON";
+    protected final String _tableDispName = "WITHDRAWAL_REASON";
     protected final String _tablePropertyName = "withdrawalReason";
-    protected final TableSqlName _tableSqlName = new TableSqlName("withdrawal_reason", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("exampledb.dbo.WITHDRAWAL_REASON", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -65,25 +65,25 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, String.class, "withdrawalReasonCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "memberWithdrawalList", null, false);
+    protected final ColumnInfo _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, String.class, "withdrawalReasonCode", null, true, false, true, "char", 3, 0, null, false, null, null, null, "memberWithdrawalList", null, false);
 //"string"
-    protected final ColumnInfo _columnWithdrawalReasonText = cci("WITHDRAWAL_REASON_TEXT", "WITHDRAWAL_REASON_TEXT", null, null, String.class, "withdrawalReasonText", null, false, false, true, "TEXT", 65535, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnWithdrawalReasonText = cci("WITHDRAWAL_REASON_TEXT", "WITHDRAWAL_REASON_TEXT", null, null, String.class, "withdrawalReasonText", null, false, false, true, "text", 2147483647, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, true, "int", 10, 0, null, false, null, null, null, null, null, false);
 //"int64"
 
     /**
-     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, char(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnWithdrawalReasonCode() { return _columnWithdrawalReasonCode; }
     /**
-     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, text(2147483647)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnWithdrawalReasonText() { return _columnWithdrawalReasonText; }
     /**
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDisplayOrder() { return _columnDisplayOrder; }
@@ -126,7 +126,7 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+     * MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberWithdrawalList() {

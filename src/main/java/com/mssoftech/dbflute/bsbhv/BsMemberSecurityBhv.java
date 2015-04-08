@@ -20,13 +20,13 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of member_security as TABLE. <br>
+ * The behavior of MEMBER_SECURITY as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_ID
  *
  * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
@@ -38,7 +38,7 @@ import com.mssoftech.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member
+ *     MEMBER
  *
  * [referrer table]
  *     
@@ -65,7 +65,7 @@ public abstract class BsMemberSecurityBhv extends AbstractBehaviorWritable<Membe
     /** {@inheritDoc} */
     public MemberSecurityDbm asDBMeta() { return MemberSecurityDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "member_security"; }
+    public String asTableDbName() { return "MEMBER_SECURITY"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsMemberSecurityBhv extends AbstractBehaviorWritable<Membe
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
+     * @param memberId : PK, NotNull, int(10), FK to MEMBER. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.

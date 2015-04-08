@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of summary_product.
+ * The base condition-bean of SUMMARY_PRODUCT.
  * @author DBFlute(AutoGenerator)
  */
 public class BsSummaryProductCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "summary_product";
+        return "SUMMARY_PRODUCT";
     }
 
     // ===================================================================================
@@ -268,27 +268,27 @@ public class BsSummaryProductCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * PRODUCT_ID: {NotNull, INT(10), default=[0]}
+         * PRODUCT_ID: {NotNull, int identity(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * PRODUCT_NAME: {NotNull, VARCHAR(50)}
+         * PRODUCT_NAME: {NotNull, nvarchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
         /**
-         * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+         * PRODUCT_HANDLE_CODE: {NotNull, nvarchar(100)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
-         * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
+         * PRODUCT_STATUS_CODE: {NotNull, char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
         /**
-         * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
+         * LATEST_PURCHASE_DATETIME: {datetime(23, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnLatestPurchaseDatetime() { return doColumn("LATEST_PURCHASE_DATETIME"); }
@@ -298,7 +298,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
         protected void doSpecifyRequiredColumn() {
         }
         @Override
-        protected String getTableDbName() { return "summary_product"; }
+        protected String getTableDbName() { return "SUMMARY_PRODUCT"; }
     }
 
     // ===================================================================================

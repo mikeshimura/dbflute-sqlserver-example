@@ -11,10 +11,12 @@ type Product struct {
 	productCategoryCode string
 	productStatusCode string
 	regularPrice int64
-	registerDatetime df.MysqlTimestamp
+	registerDatetime df.Timestamp
 	registerUser string
-	updateDatetime df.MysqlTimestamp
+	registerProcess string
+	updateDatetime df.Timestamp
 	updateUser string
+	updateProcess string
 	versionNo int64
 	df.BaseEntity
 }
@@ -43,24 +45,30 @@ func (l *Product) GetProductStatusCode () string {
 func (l *Product) GetRegularPrice () int64 {
 	return l.regularPrice
 }
-func (l *Product) GetRegisterDatetime () df.MysqlTimestamp {
+func (l *Product) GetRegisterDatetime () df.Timestamp {
 	return l.registerDatetime
 }
 func (l *Product) GetRegisterUser () string {
 	return l.registerUser
 }
-func (l *Product) GetUpdateDatetime () df.MysqlTimestamp {
+func (l *Product) GetRegisterProcess () string {
+	return l.registerProcess
+}
+func (l *Product) GetUpdateDatetime () df.Timestamp {
 	return l.updateDatetime
 }
 func (l *Product) GetUpdateUser () string {
 	return l.updateUser
+}
+func (l *Product) GetUpdateProcess () string {
+	return l.updateProcess
 }
 func (l *Product) GetVersionNo () int64 {
 	return l.versionNo
 }
 
 func (t *Product) GetAsInterfaceArray() []interface{} {
-	i := make([]interface{}, 11)
+	i := make([]interface{}, 13)
 	i[0] = &(t.productId)
 	i[1] = &(t.productName)
 	i[2] = &(t.productHandleCode)
@@ -69,9 +77,11 @@ func (t *Product) GetAsInterfaceArray() []interface{} {
 	i[5] = &(t.regularPrice)
 	i[6] = &(t.registerDatetime)
 	i[7] = &(t.registerUser)
-	i[8] = &(t.updateDatetime)
-	i[9] = &(t.updateUser)
-	i[10] = &(t.versionNo)
+	i[8] = &(t.registerProcess)
+	i[9] = &(t.updateDatetime)
+	i[10] = &(t.updateUser)
+	i[11] = &(t.updateProcess)
+	i[12] = &(t.versionNo)
 	return i
 }
 
@@ -110,7 +120,7 @@ func (t *Product) SetRegularPrice(regularPrice int64) {
 	t.AddPropertyName("regularPrice")
 	t.regularPrice = regularPrice
 }
-func (t *Product) SetRegisterDatetime(registerDatetime df.MysqlTimestamp) {
+func (t *Product) SetRegisterDatetime(registerDatetime df.Timestamp) {
 	t.AddPropertyName("registerDatetime")
 	t.registerDatetime = registerDatetime
 }
@@ -118,13 +128,21 @@ func (t *Product) SetRegisterUser(registerUser string) {
 	t.AddPropertyName("registerUser")
 	t.registerUser = registerUser
 }
-func (t *Product) SetUpdateDatetime(updateDatetime df.MysqlTimestamp) {
+func (t *Product) SetRegisterProcess(registerProcess string) {
+	t.AddPropertyName("registerProcess")
+	t.registerProcess = registerProcess
+}
+func (t *Product) SetUpdateDatetime(updateDatetime df.Timestamp) {
 	t.AddPropertyName("updateDatetime")
 	t.updateDatetime = updateDatetime
 }
 func (t *Product) SetUpdateUser(updateUser string) {
 	t.AddPropertyName("updateUser")
 	t.updateUser = updateUser
+}
+func (t *Product) SetUpdateProcess(updateProcess string) {
+	t.AddPropertyName("updateProcess")
+	t.updateProcess = updateProcess
 }
 func (t *Product) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")

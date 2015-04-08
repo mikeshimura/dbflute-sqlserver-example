@@ -19,7 +19,7 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of summary_product as VIEW. <br>
+ * The behavior of SUMMARY_PRODUCT as VIEW. <br>
  * <pre>
  * [primary key]
  *     
@@ -64,7 +64,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
     /** {@inheritDoc} */
     public SummaryProductDbm asDBMeta() { return SummaryProductDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "summary_product"; }
+    public String asTableDbName() { return "SUMMARY_PRODUCT"; }
 
     // ===================================================================================
     //                                                                        New Instance

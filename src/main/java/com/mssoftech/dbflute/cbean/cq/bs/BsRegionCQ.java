@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of region.
+ * The base condition-query of REGION.
  * @author DBFlute(AutoGenerator)
  */
 public class BsRegionCQ extends AbstractBsRegionCQ {
@@ -35,7 +35,7 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from region) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from REGION) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -58,7 +58,7 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join region on ... and FOO = [value] ...}
+     * {select ... from ... left outer join REGION on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
@@ -95,14 +95,14 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * REGION_ID: {PK, NotNull, INT(10)}
+     * REGION_ID: {PK, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionId_Asc() { regOBA("REGION_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGION_ID: {PK, NotNull, INT(10)}
+     * REGION_ID: {PK, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionId_Desc() { regOBD("REGION_ID"); return this; }
@@ -115,14 +115,14 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * REGION_NAME: {NotNull, VARCHAR(50)}
+     * REGION_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionName_Asc() { regOBA("REGION_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGION_NAME: {NotNull, VARCHAR(50)}
+     * REGION_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionName_Desc() { regOBD("REGION_NAME"); return this; }

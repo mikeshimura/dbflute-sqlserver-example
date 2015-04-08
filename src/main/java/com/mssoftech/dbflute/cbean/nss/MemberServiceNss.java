@@ -3,7 +3,7 @@ package com.mssoftech.dbflute.cbean.nss;
 import com.mssoftech.dbflute.cbean.cq.MemberServiceCQ;
 
 /**
- * The nest select set-upper of member_service.
+ * The nest select set-upper of MEMBER_SERVICE.
  * @author DBFlute(AutoGenerator)
  */
 public class MemberServiceNss {
@@ -20,7 +20,7 @@ public class MemberServiceNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member by my MEMBER_ID, named 'member'.
+     * MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -29,7 +29,7 @@ public class MemberServiceNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
      */
     public void withServiceRank() {
         _query.xdoNss(() -> _query.queryServiceRank());

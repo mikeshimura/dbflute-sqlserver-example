@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of summary_withdrawal.
+ * The condition-query for in-line of SUMMARY_WITHDRAWAL.
  * @author DBFlute(AutoGenerator)
  */
 public class SummaryWithdrawalCIQ extends AbstractBsSummaryWithdrawalCQ {

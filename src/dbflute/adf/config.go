@@ -5,7 +5,7 @@ import (
 )
 func DBCurrentCreate() {
 	di := new(df.DBCurrent)
-	di.ProjectName = "mysql"
+	di.ProjectName = "mssql"
 	di.ProjectPrefix = ""
 	di.PagingCountLater = true
 	di.PagingCountLeastJoin = true
@@ -20,9 +20,9 @@ func DBCurrentCreate() {
 	di.ColumnNullObjectGearedToSpecify = false
 	di.DisableSelectIndex = false
 	di.QueryUpdateCountPreCheck = false
-	var dw df.DBWay = new(df.WayOfMySQL)
+	var dw df.DBWay = new(df.WayOfSQLServer)
 	di.DBWay = &dw
-	var dd df.DBDef = new(df.MySQL)
+	var dd df.DBDef = new(df.SQLServer)
 	di.DBDef = &dd
 	df.DBCurrent_I = di
 }

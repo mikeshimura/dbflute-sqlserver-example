@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of member_login as TABLE. <br>
+ * The behavior of MEMBER_LOGIN as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_LOGIN_ID
@@ -38,7 +38,7 @@ import com.mssoftech.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     member_status, member
+ *     MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     
@@ -65,7 +65,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /** {@inheritDoc} */
     public MemberLoginDbm asDBMeta() { return MemberLoginDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "member_login"; }
+    public String asTableDbName() { return "MEMBER_LOGIN"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberLoginId : PK, ID, NotNull, BIGINT(19). (NotNull)
+     * @param memberLoginId : PK, ID, NotNull, bigint identity(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -182,32 +182,6 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     protected MemberLoginCB xprepareCBAsPK(Long memberLoginId) {
         assertObjectNotNull("memberLoginId", memberLoginId);
         return newConditionBean().acceptPK(memberLoginId);
-    }
-
-    /**
-     * Select the entity by the unique-key value.
-     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
-     * @param loginDatetime : +UQ, IX, NotNull, DATETIME(19). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<MemberLogin> selectByUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime) {
-        return facadeSelectByUniqueOf(memberId, loginDatetime);
-    }
-
-    protected OptionalEntity<MemberLogin> facadeSelectByUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime) {
-        return doSelectByUniqueOf(memberId, loginDatetime, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends MemberLogin> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, loginDatetime), tp), memberId, loginDatetime);
-    }
-
-    protected MemberLoginCB xprepareCBAsUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime) {
-        assertObjectNotNull("memberId", memberId);assertObjectNotNull("loginDatetime", loginDatetime);
-        return newConditionBean().acceptUniqueOf(memberId, loginDatetime);
     }
 
     // ===================================================================================

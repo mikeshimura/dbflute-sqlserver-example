@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of service_rank.
+ * The condition-query for in-line of SERVICE_RANK.
  * @author DBFlute(AutoGenerator)
  */
 public class ServiceRankCIQ extends AbstractBsServiceRankCQ {

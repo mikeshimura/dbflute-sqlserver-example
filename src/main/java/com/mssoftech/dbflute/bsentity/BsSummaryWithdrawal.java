@@ -10,8 +10,7 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of summary_withdrawal as VIEW. <br>
- * VIEW
+ * The entity of SUMMARY_WITHDRAWAL as VIEW. <br>
  * <pre>
  * [primary-key]
  *     
@@ -50,7 +49,7 @@ import com.mssoftech.dbflute.exentity.*;
  * java.time.LocalDateTime withdrawalDatetime = entity.getWithdrawalDatetime();
  * String memberStatusCode = entity.getMemberStatusCode();
  * String memberStatusName = entity.getMemberStatusName();
- * Long maxPurchasePrice = entity.getMaxPurchasePrice();
+ * Integer maxPurchasePrice = entity.getMaxPurchasePrice();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
  * entity.setWithdrawalReasonCode(withdrawalReasonCode);
@@ -75,32 +74,32 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_ID: {NotNull, INT(10)} */
+    /** MEMBER_ID: {NotNull, int(10)} */
     protected Integer _memberId;
 
-    /** MEMBER_NAME: {VARCHAR(180)} */
+    /** MEMBER_NAME: {nvarchar(200)} */
     protected String _memberName;
 
-    /** WITHDRAWAL_REASON_CODE: {CHAR(3)} */
+    /** WITHDRAWAL_REASON_CODE: {char(3)} */
     protected String _withdrawalReasonCode;
 
-    /** WITHDRAWAL_REASON_TEXT: {TEXT(65535)} */
+    /** WITHDRAWAL_REASON_TEXT: {text(2147483647)} */
     protected String _withdrawalReasonText;
 
-    /** WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} */
+    /** WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} */
     protected String _withdrawalReasonInputText;
 
-    /** WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} */
+    /** WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _withdrawalDatetime;
 
-    /** MEMBER_STATUS_CODE: {CHAR(3)} */
+    /** MEMBER_STATUS_CODE: {char(3)} */
     protected String _memberStatusCode;
 
-    /** MEMBER_STATUS_NAME: {VARCHAR(50)} */
+    /** MEMBER_STATUS_NAME: {nvarchar(50)} */
     protected String _memberStatusName;
 
-    /** MAX_PURCHASE_PRICE: {BIGINT(19)} */
-    protected Long _maxPurchasePrice;
+    /** MAX_PURCHASE_PRICE: {int(10)} */
+    protected Integer _maxPurchasePrice;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -112,7 +111,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "summary_withdrawal";
+        return "SUMMARY_WITHDRAWAL";
     }
 
     // ===================================================================================
@@ -209,7 +208,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {NotNull, INT(10)} <br>
+     * [get] MEMBER_ID: {NotNull, int(10)} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -218,7 +217,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] MEMBER_ID: {NotNull, INT(10)} <br>
+     * [set] MEMBER_ID: {NotNull, int(10)} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -227,8 +226,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] MEMBER_NAME: {VARCHAR(180)} <br>
-     * 会員名称: 会員のフルネームの名称。
+     * [get] MEMBER_NAME: {nvarchar(200)} <br>
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
@@ -237,8 +235,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] MEMBER_NAME: {VARCHAR(180)} <br>
-     * 会員名称: 会員のフルネームの名称。
+     * [set] MEMBER_NAME: {nvarchar(200)} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
@@ -247,9 +244,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_CODE: {CHAR(3)} <br>
-     * 退会理由コード: 退会した定型理由を参照するコード。<br>
-     * 何も言わずに退会する会員もいるので必須項目ではない。
+     * [get] WITHDRAWAL_REASON_CODE: {char(3)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonCode() {
@@ -258,9 +253,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_CODE: {CHAR(3)} <br>
-     * 退会理由コード: 退会した定型理由を参照するコード。<br>
-     * 何も言わずに退会する会員もいるので必須項目ではない。
+     * [set] WITHDRAWAL_REASON_CODE: {char(3)} <br>
      * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonCode(String withdrawalReasonCode) {
@@ -269,9 +262,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br>
-     * 退会理由テキスト: 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
-     * そうするとUI側できれいに見せるのが大変でしょうね。
+     * [get] WITHDRAWAL_REASON_TEXT: {text(2147483647)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonText() {
@@ -280,9 +271,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_TEXT: {TEXT(65535)} <br>
-     * 退会理由テキスト: 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
-     * そうするとUI側できれいに見せるのが大変でしょうね。
+     * [set] WITHDRAWAL_REASON_TEXT: {text(2147483647)} <br>
      * @param withdrawalReasonText The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonText(String withdrawalReasonText) {
@@ -291,9 +280,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
-     * 退会理由入力テキスト: 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonInputText() {
@@ -302,9 +289,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
-     * 退会理由入力テキスト: 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonInputText(String withdrawalReasonInputText) {
@@ -313,9 +298,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
-     * 退会日時: 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * [get] WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getWithdrawalDatetime() {
@@ -324,9 +307,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
-     * 退会日時: 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * [set] WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalDatetime(java.time.LocalDateTime withdrawalDatetime) {
@@ -335,8 +316,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] MEMBER_STATUS_CODE: {CHAR(3)} <br>
-     * 会員ステータスコード
+     * [get] MEMBER_STATUS_CODE: {char(3)} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -345,8 +325,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] MEMBER_STATUS_CODE: {CHAR(3)} <br>
-     * 会員ステータスコード
+     * [set] MEMBER_STATUS_CODE: {char(3)} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusCode(String memberStatusCode) {
@@ -355,8 +334,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] MEMBER_STATUS_NAME: {VARCHAR(50)} <br>
-     * 会員ステータス名称
+     * [get] MEMBER_STATUS_NAME: {nvarchar(50)} <br>
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -365,8 +343,7 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] MEMBER_STATUS_NAME: {VARCHAR(50)} <br>
-     * 会員ステータス名称
+     * [set] MEMBER_STATUS_NAME: {nvarchar(50)} <br>
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -375,19 +352,19 @@ public abstract class BsSummaryWithdrawal extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] MAX_PURCHASE_PRICE: {BIGINT(19)} <br>
+     * [get] MAX_PURCHASE_PRICE: {int(10)} <br>
      * @return The value of the column 'MAX_PURCHASE_PRICE'. (NullAllowed even if selected: for no constraint)
      */
-    public Long getMaxPurchasePrice() {
+    public Integer getMaxPurchasePrice() {
         checkSpecifiedProperty("maxPurchasePrice");
         return _maxPurchasePrice;
     }
 
     /**
-     * [set] MAX_PURCHASE_PRICE: {BIGINT(19)} <br>
+     * [set] MAX_PURCHASE_PRICE: {int(10)} <br>
      * @param maxPurchasePrice The value of the column 'MAX_PURCHASE_PRICE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setMaxPurchasePrice(Long maxPurchasePrice) {
+    public void setMaxPurchasePrice(Integer maxPurchasePrice) {
         registerModifiedProperty("maxPurchasePrice");
         _maxPurchasePrice = maxPurchasePrice;
     }

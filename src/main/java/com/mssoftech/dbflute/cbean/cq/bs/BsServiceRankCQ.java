@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of service_rank.
+ * The base condition-query of SERVICE_RANK.
  * @author DBFlute(AutoGenerator)
  */
 public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
@@ -35,7 +35,7 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from service_rank) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from SERVICE_RANK) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -58,7 +58,7 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join service_rank on ... and FOO = [value] ...}
+     * {select ... from ... left outer join SERVICE_RANK on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
@@ -95,14 +95,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)}
+     * SERVICE_RANK_CODE: {PK, NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankCode_Asc() { regOBA("SERVICE_RANK_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)}
+     * SERVICE_RANK_CODE: {PK, NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankCode_Desc() { regOBD("SERVICE_RANK_CODE"); return this; }
@@ -115,14 +115,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * SERVICE_RANK_NAME: {NotNull, VARCHAR(50)}
+     * SERVICE_RANK_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankName_Asc() { regOBA("SERVICE_RANK_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * SERVICE_RANK_NAME: {NotNull, VARCHAR(50)}
+     * SERVICE_RANK_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankName_Desc() { regOBD("SERVICE_RANK_NAME"); return this; }
@@ -135,14 +135,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
+     * SERVICE_POINT_INCIDENCE: {NotNull, numeric(5, 3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServicePointIncidence_Asc() { regOBA("SERVICE_POINT_INCIDENCE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
+     * SERVICE_POINT_INCIDENCE: {NotNull, numeric(5, 3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServicePointIncidence_Desc() { regOBD("SERVICE_POINT_INCIDENCE"); return this; }
@@ -155,14 +155,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * NEW_ACCEPTABLE_FLG: {NotNull, INT(10)}
+     * NEW_ACCEPTABLE_FLG: {NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_NewAcceptableFlg_Asc() { regOBA("NEW_ACCEPTABLE_FLG"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * NEW_ACCEPTABLE_FLG: {NotNull, INT(10)}
+     * NEW_ACCEPTABLE_FLG: {NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_NewAcceptableFlg_Desc() { regOBD("NEW_ACCEPTABLE_FLG"); return this; }
@@ -175,14 +175,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * DESCRIPTION: {NotNull, VARCHAR(200)}
+     * DESCRIPTION: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_Description_Asc() { regOBA("DESCRIPTION"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * DESCRIPTION: {NotNull, VARCHAR(200)}
+     * DESCRIPTION: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_Description_Desc() { regOBD("DESCRIPTION"); return this; }
@@ -195,14 +195,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }

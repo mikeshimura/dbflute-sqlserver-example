@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of member_withdrawal.
+ * The condition-query for in-line of MEMBER_WITHDRAWAL.
  * @author DBFlute(AutoGenerator)
  */
 public class MemberWithdrawalCIQ extends AbstractBsMemberWithdrawalCQ {
@@ -66,9 +66,12 @@ public class MemberWithdrawalCIQ extends AbstractBsMemberWithdrawalCQ {
     protected ConditionValue xgetCValueWithdrawalReasonInputText() { return _myCQ.xdfgetWithdrawalReasonInputText(); }
     protected ConditionValue xgetCValueWithdrawalDatetime() { return _myCQ.xdfgetWithdrawalDatetime(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return _myCQ.xdfgetRegisterProcess(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return _myCQ.xdfgetUpdateProcess(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
+    protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(MemberWithdrawalCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

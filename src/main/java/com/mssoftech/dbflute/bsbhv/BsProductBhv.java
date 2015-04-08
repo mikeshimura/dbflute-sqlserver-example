@@ -20,13 +20,13 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of product as TABLE. <br>
+ * The behavior of PRODUCT as TABLE. <br>
  * <pre>
  * [primary key]
  *     PRODUCT_ID
  *
  * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS, VERSION_NO
  *
  * [sequence]
  *     
@@ -38,10 +38,10 @@ import com.mssoftech.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     product_category, product_status
+ *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer table]
- *     purchase
+ *     PURCHASE
  *
  * [foreign property]
  *     productCategory, productStatus
@@ -65,7 +65,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
     /** {@inheritDoc} */
     public ProductDbm asDBMeta() { return ProductDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "product"; }
+    public String asTableDbName() { return "PRODUCT"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Select the entity by the primary-key value.
-     * @param productId : PK, ID, NotNull, INT(10). (NotNull)
+     * @param productId : PK, ID, NotNull, int identity(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,7 +186,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Select the entity by the unique-key value.
-     * @param productHandleCode : UQ, NotNull, VARCHAR(100). (NotNull)
+     * @param productHandleCode : UQ, NotNull, nvarchar(100). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -386,7 +386,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * purchase by PRODUCT_ID, named 'purchaseList'.
+     * PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
@@ -417,7 +417,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * purchase by PRODUCT_ID, named 'purchaseList'.
+     * PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">product</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...

@@ -71,12 +71,6 @@ func EntityInit() {
 		return &te
 	}
 	df.BhvUtil_I.AddEntity("Purchase", Purchase)
-	PurchasePayment := func() *df.Entity {
-		var te df.Entity = new(PurchasePayment)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("PurchasePayment", PurchasePayment)
 	Region := func() *df.Entity {
 		var te df.Entity = new(Region)
 		te.SetUp()
@@ -101,54 +95,18 @@ func EntityInit() {
 		return &te
 	}
 	df.BhvUtil_I.AddEntity("SummaryWithdrawal", SummaryWithdrawal)
-	VendorConstraintNameAutoBar := func() *df.Entity {
-		var te df.Entity = new(VendorConstraintNameAutoBar)
+	VendorSymmetric := func() *df.Entity {
+		var te df.Entity = new(VendorSymmetric)
 		te.SetUp()
 		return &te
 	}
-	df.BhvUtil_I.AddEntity("VendorConstraintNameAutoBar", VendorConstraintNameAutoBar)
-	VendorConstraintNameAutoFoo := func() *df.Entity {
-		var te df.Entity = new(VendorConstraintNameAutoFoo)
+	df.BhvUtil_I.AddEntity("VendorSymmetric", VendorSymmetric)
+	WhiteDelimiter := func() *df.Entity {
+		var te df.Entity = new(WhiteDelimiter)
 		te.SetUp()
 		return &te
 	}
-	df.BhvUtil_I.AddEntity("VendorConstraintNameAutoFoo", VendorConstraintNameAutoFoo)
-	VendorConstraintNameAutoQux := func() *df.Entity {
-		var te df.Entity = new(VendorConstraintNameAutoQux)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorConstraintNameAutoQux", VendorConstraintNameAutoQux)
-	VendorConstraintNameAutoRef := func() *df.Entity {
-		var te df.Entity = new(VendorConstraintNameAutoRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorConstraintNameAutoRef", VendorConstraintNameAutoRef)
-	VendorLargeData := func() *df.Entity {
-		var te df.Entity = new(VendorLargeData)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorLargeData", VendorLargeData)
-	VendorLargeDataRef := func() *df.Entity {
-		var te df.Entity = new(VendorLargeDataRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorLargeDataRef", VendorLargeDataRef)
-	VendorTheLongAndWindingTableAndColumn := func() *df.Entity {
-		var te df.Entity = new(VendorTheLongAndWindingTableAndColumn)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorTheLongAndWindingTableAndColumn", VendorTheLongAndWindingTableAndColumn)
-	VendorTheLongAndWindingTableAndColumnRef := func() *df.Entity {
-		var te df.Entity = new(VendorTheLongAndWindingTableAndColumnRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorTheLongAndWindingTableAndColumnRef", VendorTheLongAndWindingTableAndColumnRef)
+	df.BhvUtil_I.AddEntity("WhiteDelimiter", WhiteDelimiter)
 	WithdrawalReason := func() *df.Entity {
 		var te df.Entity = new(WithdrawalReason)
 		te.SetUp()

@@ -8,14 +8,16 @@ type Purchase struct {
 	purchaseId int64
 	memberId int64
 	productId int64
-	purchaseDatetime df.MysqlTimestamp
+	purchaseDatetime df.Timestamp
 	purchaseCount int64
 	purchasePrice int64
 	paymentCompleteFlg int64
-	registerDatetime df.MysqlTimestamp
+	registerDatetime df.Timestamp
 	registerUser string
-	updateDatetime df.MysqlTimestamp
+	registerProcess string
+	updateDatetime df.Timestamp
 	updateUser string
+	updateProcess string
 	versionNo int64
 	df.BaseEntity
 }
@@ -35,7 +37,7 @@ func (l *Purchase) GetMemberId () int64 {
 func (l *Purchase) GetProductId () int64 {
 	return l.productId
 }
-func (l *Purchase) GetPurchaseDatetime () df.MysqlTimestamp {
+func (l *Purchase) GetPurchaseDatetime () df.Timestamp {
 	return l.purchaseDatetime
 }
 func (l *Purchase) GetPurchaseCount () int64 {
@@ -47,24 +49,30 @@ func (l *Purchase) GetPurchasePrice () int64 {
 func (l *Purchase) GetPaymentCompleteFlg () int64 {
 	return l.paymentCompleteFlg
 }
-func (l *Purchase) GetRegisterDatetime () df.MysqlTimestamp {
+func (l *Purchase) GetRegisterDatetime () df.Timestamp {
 	return l.registerDatetime
 }
 func (l *Purchase) GetRegisterUser () string {
 	return l.registerUser
 }
-func (l *Purchase) GetUpdateDatetime () df.MysqlTimestamp {
+func (l *Purchase) GetRegisterProcess () string {
+	return l.registerProcess
+}
+func (l *Purchase) GetUpdateDatetime () df.Timestamp {
 	return l.updateDatetime
 }
 func (l *Purchase) GetUpdateUser () string {
 	return l.updateUser
+}
+func (l *Purchase) GetUpdateProcess () string {
+	return l.updateProcess
 }
 func (l *Purchase) GetVersionNo () int64 {
 	return l.versionNo
 }
 
 func (t *Purchase) GetAsInterfaceArray() []interface{} {
-	i := make([]interface{}, 12)
+	i := make([]interface{}, 14)
 	i[0] = &(t.purchaseId)
 	i[1] = &(t.memberId)
 	i[2] = &(t.productId)
@@ -74,9 +82,11 @@ func (t *Purchase) GetAsInterfaceArray() []interface{} {
 	i[6] = &(t.paymentCompleteFlg)
 	i[7] = &(t.registerDatetime)
 	i[8] = &(t.registerUser)
-	i[9] = &(t.updateDatetime)
-	i[10] = &(t.updateUser)
-	i[11] = &(t.versionNo)
+	i[9] = &(t.registerProcess)
+	i[10] = &(t.updateDatetime)
+	i[11] = &(t.updateUser)
+	i[12] = &(t.updateProcess)
+	i[13] = &(t.versionNo)
 	return i
 }
 
@@ -103,7 +113,7 @@ func (t *Purchase) SetProductId(productId int64) {
 	t.AddPropertyName("productId")
 	t.productId = productId
 }
-func (t *Purchase) SetPurchaseDatetime(purchaseDatetime df.MysqlTimestamp) {
+func (t *Purchase) SetPurchaseDatetime(purchaseDatetime df.Timestamp) {
 	t.AddPropertyName("purchaseDatetime")
 	t.purchaseDatetime = purchaseDatetime
 }
@@ -119,7 +129,7 @@ func (t *Purchase) SetPaymentCompleteFlg(paymentCompleteFlg int64) {
 	t.AddPropertyName("paymentCompleteFlg")
 	t.paymentCompleteFlg = paymentCompleteFlg
 }
-func (t *Purchase) SetRegisterDatetime(registerDatetime df.MysqlTimestamp) {
+func (t *Purchase) SetRegisterDatetime(registerDatetime df.Timestamp) {
 	t.AddPropertyName("registerDatetime")
 	t.registerDatetime = registerDatetime
 }
@@ -127,13 +137,21 @@ func (t *Purchase) SetRegisterUser(registerUser string) {
 	t.AddPropertyName("registerUser")
 	t.registerUser = registerUser
 }
-func (t *Purchase) SetUpdateDatetime(updateDatetime df.MysqlTimestamp) {
+func (t *Purchase) SetRegisterProcess(registerProcess string) {
+	t.AddPropertyName("registerProcess")
+	t.registerProcess = registerProcess
+}
+func (t *Purchase) SetUpdateDatetime(updateDatetime df.Timestamp) {
 	t.AddPropertyName("updateDatetime")
 	t.updateDatetime = updateDatetime
 }
 func (t *Purchase) SetUpdateUser(updateUser string) {
 	t.AddPropertyName("updateUser")
 	t.updateUser = updateUser
+}
+func (t *Purchase) SetUpdateProcess(updateProcess string) {
+	t.AddPropertyName("updateProcess")
+	t.updateProcess = updateProcess
 }
 func (t *Purchase) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")

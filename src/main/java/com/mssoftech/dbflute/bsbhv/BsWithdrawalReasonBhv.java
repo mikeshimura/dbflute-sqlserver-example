@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.bsentity.dbmeta.*;
 import com.mssoftech.dbflute.cbean.*;
 
 /**
- * The behavior of withdrawal_reason as TABLE. <br>
+ * The behavior of WITHDRAWAL_REASON as TABLE. <br>
  * <pre>
  * [primary key]
  *     WITHDRAWAL_REASON_CODE
@@ -41,7 +41,7 @@ import com.mssoftech.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     member_withdrawal
+ *     MEMBER_WITHDRAWAL
  *
  * [foreign property]
  *     
@@ -65,7 +65,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
     /** {@inheritDoc} */
     public WithdrawalReasonDbm asDBMeta() { return WithdrawalReasonDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "withdrawal_reason"; }
+    public String asTableDbName() { return "WITHDRAWAL_REASON"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -157,7 +157,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
 
     /**
      * Select the entity by the primary-key value.
-     * @param withdrawalReasonCode : PK, NotNull, CHAR(3). (NotNull)
+     * @param withdrawalReasonCode : PK, NotNull, char(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,7 +186,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
 
     /**
      * Select the entity by the unique-key value.
-     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, int(10). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -386,7 +386,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
 
     /**
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
-     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+     * MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * <pre>
      * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalReasonList</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">withdrawalCB</span>.setupSelect...
@@ -417,7 +417,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
 
     /**
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
-     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+     * MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * <pre>
      * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalReason</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">withdrawalCB</span>.setupSelect...

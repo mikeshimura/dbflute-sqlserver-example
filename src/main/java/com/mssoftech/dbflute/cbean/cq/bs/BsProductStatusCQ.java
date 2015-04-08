@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of product_status.
+ * The base condition-query of PRODUCT_STATUS.
  * @author DBFlute(AutoGenerator)
  */
 public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
@@ -35,7 +35,7 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from product_status) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from PRODUCT_STATUS) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -58,7 +58,7 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join product_status on ... and FOO = [value] ...}
+     * {select ... from ... left outer join PRODUCT_STATUS on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>
@@ -95,14 +95,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {PK, NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
+     * PRODUCT_STATUS_CODE: {PK, NotNull, char(3)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
@@ -115,14 +115,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusName_Asc() { regOBA("PRODUCT_STATUS_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
+     * PRODUCT_STATUS_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusName_Desc() { regOBD("PRODUCT_STATUS_NAME"); return this; }
@@ -135,14 +135,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, int(10)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }

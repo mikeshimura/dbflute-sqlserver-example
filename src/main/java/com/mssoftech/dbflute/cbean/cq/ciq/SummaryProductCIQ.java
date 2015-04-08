@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of summary_product.
+ * The condition-query for in-line of SUMMARY_PRODUCT.
  * @author DBFlute(AutoGenerator)
  */
 public class SummaryProductCIQ extends AbstractBsSummaryProductCQ {

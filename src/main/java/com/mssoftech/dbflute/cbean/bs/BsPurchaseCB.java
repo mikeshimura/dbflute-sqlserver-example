@@ -21,7 +21,7 @@ import com.mssoftech.dbflute.cbean.cq.*;
 import com.mssoftech.dbflute.cbean.nss.*;
 
 /**
- * The base condition-bean of purchase.
+ * The base condition-bean of PURCHASE.
  * @author DBFlute(AutoGenerator)
  */
 public class BsPurchaseCB extends AbstractConditionBean {
@@ -70,7 +70,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "purchase";
+        return "PURCHASE";
     }
 
     // ===================================================================================
@@ -78,27 +78,13 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param purchaseId : PK, ID, NotNull, BIGINT(19). (NotNull)
+     * @param purchaseId : PK, ID, NotNull, bigint identity(19). (NotNull)
      * @return this. (NotNull)
      */
     public PurchaseCB acceptPK(Long purchaseId) {
         assertObjectNotNull("purchaseId", purchaseId);
         BsPurchaseCB cb = this;
         cb.query().setPurchaseId_Equal(purchaseId);
-        return (PurchaseCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param memberId : UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
-     * @param productId : +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
-     * @param purchaseDatetime : +UQ, IX+, NotNull, DATETIME(19). (NotNull)
-     * @return this. (NotNull)
-     */
-    public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
-        BsPurchaseCB cb = this;
-        cb.query().setMemberId_Equal(memberId);cb.query().setProductId_Equal(productId);cb.query().setPurchaseDatetime_Equal(purchaseDatetime);
         return (PurchaseCB)this;
     }
 
@@ -256,7 +242,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * member by my MEMBER_ID, named 'member'.
+     * MEMBER by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -285,7 +271,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * product by my PRODUCT_ID, named 'product'.
+     * PRODUCT by my PRODUCT_ID, named 'product'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Product()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -355,62 +341,72 @@ public class BsPurchaseCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * PURCHASE_ID: {PK, ID, NotNull, BIGINT(19)}
+         * PURCHASE_ID: {PK, ID, NotNull, bigint identity(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPurchaseId() { return doColumn("PURCHASE_ID"); }
         /**
-         * MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
+         * MEMBER_ID: {NotNull, int(10), FK to MEMBER}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
+         * PRODUCT_ID: {NotNull, int(10), FK to PRODUCT}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
+         * PURCHASE_DATETIME: {NotNull, datetime(23, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPurchaseDatetime() { return doColumn("PURCHASE_DATETIME"); }
         /**
-         * PURCHASE_COUNT: {NotNull, INT(10)}
+         * PURCHASE_COUNT: {NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPurchaseCount() { return doColumn("PURCHASE_COUNT"); }
         /**
-         * PURCHASE_PRICE: {IX, NotNull, INT(10)}
+         * PURCHASE_PRICE: {NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }
         /**
-         * PAYMENT_COMPLETE_FLG: {NotNull, INT(10)}
+         * PAYMENT_COMPLETE_FLG: {NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPaymentCompleteFlg() { return doColumn("PAYMENT_COMPLETE_FLG"); }
         /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * REGISTER_USER: {NotNull, nvarchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * REGISTER_PROCESS: {NotNull, nvarchar(200)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnRegisterProcess() { return doColumn("REGISTER_PROCESS"); }
+        /**
+         * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * UPDATE_USER: {NotNull, nvarchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
+         * UPDATE_PROCESS: {NotNull, nvarchar(200)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnUpdateProcess() { return doColumn("UPDATE_PROCESS"); }
+        /**
+         * VERSION_NO: {NotNull, bigint(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
@@ -429,10 +425,10 @@ public class BsPurchaseCB extends AbstractConditionBean {
             }
         }
         @Override
-        protected String getTableDbName() { return "purchase"; }
+        protected String getTableDbName() { return "PURCHASE"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * member by my MEMBER_ID, named 'member'.
+         * MEMBER by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {
@@ -452,7 +448,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * product by my PRODUCT_ID, named 'product'.
+         * PRODUCT by my PRODUCT_ID, named 'product'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public ProductCB.HpSpecification specifyProduct() {
@@ -469,23 +465,6 @@ public class BsPurchaseCB extends AbstractConditionBean {
                 }
             }
             return _product;
-        }
-        /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from purchase_payment where ...) as FOO_MAX} <br>
-         * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
-         * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     paymentCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     paymentCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, PurchasePayment.<span style="color: #CC4747">ALIAS_foo...</span>);
-         * </pre>
-         * @return The object to set up a function for referrer table. (NotNull)
-         */
-        public HpSDRFunction<PurchasePaymentCB, PurchaseCQ> derivedPurchasePayment() {
-            assertDerived("purchasePaymentList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PurchasePaymentCB> sq, PurchaseCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderivePurchasePaymentList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

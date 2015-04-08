@@ -213,10 +213,6 @@ func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_IsNull() *SummaryWithdrawa
 	q.regWithdrawalReasonCode(df.CK_ISN_C, 0)
 	return q
 }
-func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_IsNullOrEmpty() *SummaryWithdrawalCQ {
-	q.regWithdrawalReasonCode(df.CK_ISNOE_C, 0)
-	return q
-}
 func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_IsNotNull() *SummaryWithdrawalCQ {
 	q.regWithdrawalReasonCode(df.CK_ISNN_C, 0)
 	return q
@@ -402,28 +398,28 @@ func (q *SummaryWithdrawalCQ) getCValueWithdrawalDatetime() *df.ConditionValue {
 
 
 
-func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_Equal(value df.MysqlTimestamp) *SummaryWithdrawalCQ {
+func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_Equal(value df.Timestamp) *SummaryWithdrawalCQ {
 	q.regWithdrawalDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_GreaterThan(value df.MysqlTimestamp) *SummaryWithdrawalCQ {
+func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_GreaterThan(value df.Timestamp) *SummaryWithdrawalCQ {
 	q.regWithdrawalDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_LessThan(value df.MysqlTimestamp) *SummaryWithdrawalCQ {
+func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_LessThan(value df.Timestamp) *SummaryWithdrawalCQ {
 	q.regWithdrawalDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_GreaterEqual(value df.MysqlTimestamp) *SummaryWithdrawalCQ {
+func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_GreaterEqual(value df.Timestamp) *SummaryWithdrawalCQ {
 	q.regWithdrawalDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_LessEqual(value df.MysqlTimestamp) *SummaryWithdrawalCQ {
+func (q *SummaryWithdrawalCQ) SetWithdrawalDatetime_LessEqual(value df.Timestamp) *SummaryWithdrawalCQ {
 	q.regWithdrawalDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -496,10 +492,6 @@ func (q *SummaryWithdrawalCQ) SetMemberStatusCode_NotLikeSearch(value string, op
 
 func (q *SummaryWithdrawalCQ) SetMemberStatusCode_IsNull() *SummaryWithdrawalCQ {
 	q.regMemberStatusCode(df.CK_ISN_C, 0)
-	return q
-}
-func (q *SummaryWithdrawalCQ) SetMemberStatusCode_IsNullOrEmpty() *SummaryWithdrawalCQ {
-	q.regMemberStatusCode(df.CK_ISNOE_C, 0)
 	return q
 }
 func (q *SummaryWithdrawalCQ) SetMemberStatusCode_IsNotNull() *SummaryWithdrawalCQ {

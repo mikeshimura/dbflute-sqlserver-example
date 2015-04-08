@@ -89,13 +89,6 @@ func init() {
 	var purchase df.Behavior =PurchaseBhv_I
 	PurchaseBhv_I.BaseBehavior.Behavior=&purchase
 	PurchaseBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	PurchasePaymentBhv_I = new(PurchasePaymentBhv)
-	PurchasePaymentBhv_I.BaseBehavior = new(df.BaseBehavior)
-	PurchasePaymentBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	PurchasePaymentBhv_I.BaseBehavior.TableDbName = "PurchasePayment"
-	var purchasePayment df.Behavior =PurchasePaymentBhv_I
-	PurchasePaymentBhv_I.BaseBehavior.Behavior=&purchasePayment
-	PurchasePaymentBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
 	RegionBhv_I = new(RegionBhv)
 	RegionBhv_I.BaseBehavior = new(df.BaseBehavior)
 	RegionBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
@@ -124,62 +117,20 @@ func init() {
 	var summaryWithdrawal df.Behavior =SummaryWithdrawalBhv_I
 	SummaryWithdrawalBhv_I.BaseBehavior.Behavior=&summaryWithdrawal
 	SummaryWithdrawalBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorConstraintNameAutoBarBhv_I = new(VendorConstraintNameAutoBarBhv)
-	VendorConstraintNameAutoBarBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorConstraintNameAutoBarBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorConstraintNameAutoBarBhv_I.BaseBehavior.TableDbName = "VendorConstraintNameAutoBar"
-	var vendorConstraintNameAutoBar df.Behavior =VendorConstraintNameAutoBarBhv_I
-	VendorConstraintNameAutoBarBhv_I.BaseBehavior.Behavior=&vendorConstraintNameAutoBar
-	VendorConstraintNameAutoBarBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorConstraintNameAutoFooBhv_I = new(VendorConstraintNameAutoFooBhv)
-	VendorConstraintNameAutoFooBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorConstraintNameAutoFooBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorConstraintNameAutoFooBhv_I.BaseBehavior.TableDbName = "VendorConstraintNameAutoFoo"
-	var vendorConstraintNameAutoFoo df.Behavior =VendorConstraintNameAutoFooBhv_I
-	VendorConstraintNameAutoFooBhv_I.BaseBehavior.Behavior=&vendorConstraintNameAutoFoo
-	VendorConstraintNameAutoFooBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorConstraintNameAutoQuxBhv_I = new(VendorConstraintNameAutoQuxBhv)
-	VendorConstraintNameAutoQuxBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorConstraintNameAutoQuxBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorConstraintNameAutoQuxBhv_I.BaseBehavior.TableDbName = "VendorConstraintNameAutoQux"
-	var vendorConstraintNameAutoQux df.Behavior =VendorConstraintNameAutoQuxBhv_I
-	VendorConstraintNameAutoQuxBhv_I.BaseBehavior.Behavior=&vendorConstraintNameAutoQux
-	VendorConstraintNameAutoQuxBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorConstraintNameAutoRefBhv_I = new(VendorConstraintNameAutoRefBhv)
-	VendorConstraintNameAutoRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorConstraintNameAutoRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorConstraintNameAutoRefBhv_I.BaseBehavior.TableDbName = "VendorConstraintNameAutoRef"
-	var vendorConstraintNameAutoRef df.Behavior =VendorConstraintNameAutoRefBhv_I
-	VendorConstraintNameAutoRefBhv_I.BaseBehavior.Behavior=&vendorConstraintNameAutoRef
-	VendorConstraintNameAutoRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorLargeDataBhv_I = new(VendorLargeDataBhv)
-	VendorLargeDataBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorLargeDataBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorLargeDataBhv_I.BaseBehavior.TableDbName = "VendorLargeData"
-	var vendorLargeData df.Behavior =VendorLargeDataBhv_I
-	VendorLargeDataBhv_I.BaseBehavior.Behavior=&vendorLargeData
-	VendorLargeDataBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorLargeDataRefBhv_I = new(VendorLargeDataRefBhv)
-	VendorLargeDataRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorLargeDataRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorLargeDataRefBhv_I.BaseBehavior.TableDbName = "VendorLargeDataRef"
-	var vendorLargeDataRef df.Behavior =VendorLargeDataRefBhv_I
-	VendorLargeDataRefBhv_I.BaseBehavior.Behavior=&vendorLargeDataRef
-	VendorLargeDataRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorTheLongAndWindingTableAndColumnBhv_I = new(VendorTheLongAndWindingTableAndColumnBhv)
-	VendorTheLongAndWindingTableAndColumnBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorTheLongAndWindingTableAndColumnBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorTheLongAndWindingTableAndColumnBhv_I.BaseBehavior.TableDbName = "VendorTheLongAndWindingTableAndColumn"
-	var vendorTheLongAndWindingTableAndColumn df.Behavior =VendorTheLongAndWindingTableAndColumnBhv_I
-	VendorTheLongAndWindingTableAndColumnBhv_I.BaseBehavior.Behavior=&vendorTheLongAndWindingTableAndColumn
-	VendorTheLongAndWindingTableAndColumnBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorTheLongAndWindingTableAndColumnRefBhv_I = new(VendorTheLongAndWindingTableAndColumnRefBhv)
-	VendorTheLongAndWindingTableAndColumnRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorTheLongAndWindingTableAndColumnRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorTheLongAndWindingTableAndColumnRefBhv_I.BaseBehavior.TableDbName = "VendorTheLongAndWindingTableAndColumnRef"
-	var vendorTheLongAndWindingTableAndColumnRef df.Behavior =VendorTheLongAndWindingTableAndColumnRefBhv_I
-	VendorTheLongAndWindingTableAndColumnRefBhv_I.BaseBehavior.Behavior=&vendorTheLongAndWindingTableAndColumnRef
-	VendorTheLongAndWindingTableAndColumnRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
+	VendorSymmetricBhv_I = new(VendorSymmetricBhv)
+	VendorSymmetricBhv_I.BaseBehavior = new(df.BaseBehavior)
+	VendorSymmetricBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
+	VendorSymmetricBhv_I.BaseBehavior.TableDbName = "VendorSymmetric"
+	var vendorSymmetric df.Behavior =VendorSymmetricBhv_I
+	VendorSymmetricBhv_I.BaseBehavior.Behavior=&vendorSymmetric
+	VendorSymmetricBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
+	WhiteDelimiterBhv_I = new(WhiteDelimiterBhv)
+	WhiteDelimiterBhv_I.BaseBehavior = new(df.BaseBehavior)
+	WhiteDelimiterBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
+	WhiteDelimiterBhv_I.BaseBehavior.TableDbName = "WhiteDelimiter"
+	var whiteDelimiter df.Behavior =WhiteDelimiterBhv_I
+	WhiteDelimiterBhv_I.BaseBehavior.Behavior=&whiteDelimiter
+	WhiteDelimiterBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
 	WithdrawalReasonBhv_I = new(WithdrawalReasonBhv)
 	WithdrawalReasonBhv_I.BaseBehavior = new(df.BaseBehavior)
 	WithdrawalReasonBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()

@@ -12,14 +12,13 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of member_security as TABLE. <br>
- * 会員セキュリティ情報: 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
+ * The entity of MEMBER_SECURITY as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_ID
  * 
  * [column]
- *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
  * 
  * [sequence]
  *     
@@ -31,7 +30,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     VERSION_NO
  * 
  * [foreign table]
- *     member
+ *     MEMBER
  * 
  * [referrer table]
  *     
@@ -50,8 +49,10 @@ import com.mssoftech.dbflute.exentity.*;
  * String reminderAnswer = entity.getReminderAnswer();
  * Integer reminderUseCount = entity.getReminderUseCount();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
+ * String registerProcess = entity.getRegisterProcess();
  * String registerUser = entity.getRegisterUser();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
+ * String updateProcess = entity.getUpdateProcess();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setMemberId(memberId);
@@ -60,8 +61,10 @@ import com.mssoftech.dbflute.exentity.*;
  * entity.setReminderAnswer(reminderAnswer);
  * entity.setReminderUseCount(reminderUseCount);
  * entity.setRegisterDatetime(registerDatetime);
+ * entity.setRegisterProcess(registerProcess);
  * entity.setRegisterUser(registerUser);
  * entity.setUpdateDatetime(updateDatetime);
+ * entity.setUpdateProcess(updateProcess);
  * entity.setUpdateUser(updateUser);
  * entity.setVersionNo(versionNo);
  * = = = = = = = = = =/
@@ -79,34 +82,40 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_ID: {PK, NotNull, INT(10), FK to member} */
+    /** MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} */
     protected Integer _memberId;
 
-    /** LOGIN_PASSWORD: {NotNull, VARCHAR(50)} */
+    /** LOGIN_PASSWORD: {NotNull, nvarchar(50)} */
     protected String _loginPassword;
 
-    /** REMINDER_QUESTION: {NotNull, VARCHAR(50)} */
+    /** REMINDER_QUESTION: {NotNull, nvarchar(50)} */
     protected String _reminderQuestion;
 
-    /** REMINDER_ANSWER: {NotNull, VARCHAR(50)} */
+    /** REMINDER_ANSWER: {NotNull, nvarchar(50)} */
     protected String _reminderAnswer;
 
-    /** REMINDER_USE_COUNT: {NotNull, INT(10)} */
+    /** REMINDER_USE_COUNT: {NotNull, int(10)} */
     protected Integer _reminderUseCount;
 
-    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
+    /** REGISTER_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
+    /** REGISTER_PROCESS: {NotNull, nvarchar(200)} */
+    protected String _registerProcess;
+
+    /** REGISTER_USER: {NotNull, nvarchar(200)} */
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
+    /** UPDATE_DATETIME: {NotNull, datetime(23, 3)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
+    /** UPDATE_PROCESS: {NotNull, nvarchar(200)} */
+    protected String _updateProcess;
+
+    /** UPDATE_USER: {NotNull, nvarchar(200)} */
     protected String _updateUser;
 
-    /** VERSION_NO: {NotNull, BIGINT(19)} */
+    /** VERSION_NO: {NotNull, bigint(19)} */
     protected Long _versionNo;
 
     // ===================================================================================
@@ -119,7 +128,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "member_security";
+        return "MEMBER_SECURITY";
     }
 
     // ===================================================================================
@@ -134,11 +143,11 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** member by my MEMBER_ID, named 'member'. */
+    /** MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] member by my MEMBER_ID, named 'member'. <br>
+     * [get] MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -148,7 +157,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] member by my MEMBER_ID, named 'member'.
+     * [set] MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
@@ -204,8 +213,10 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
         sb.append(dm).append(xfND(_reminderAnswer));
         sb.append(dm).append(xfND(_reminderUseCount));
         sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerProcess));
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateProcess));
         sb.append(dm).append(xfND(_updateUser));
         sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
@@ -235,8 +246,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
-     * 会員ID: そのまま one-to-one を構成するためのFKとなる。
+     * [get] MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -245,8 +255,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
-     * 会員ID: そのまま one-to-one を構成するためのFKとなる。
+     * [set] MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -255,9 +264,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] LOGIN_PASSWORD: {NotNull, VARCHAR(50)} <br>
-     * ログインパスワード: ログイン時に利用するパスワード。<br>
-     * 本当は良くないが、Exampleなのでひとまず暗号化していない。
+     * [get] LOGIN_PASSWORD: {NotNull, nvarchar(50)} <br>
      * @return The value of the column 'LOGIN_PASSWORD'. (basically NotNull if selected: for the constraint)
      */
     public String getLoginPassword() {
@@ -266,9 +273,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] LOGIN_PASSWORD: {NotNull, VARCHAR(50)} <br>
-     * ログインパスワード: ログイン時に利用するパスワード。<br>
-     * 本当は良くないが、Exampleなのでひとまず暗号化していない。
+     * [set] LOGIN_PASSWORD: {NotNull, nvarchar(50)} <br>
      * @param loginPassword The value of the column 'LOGIN_PASSWORD'. (basically NotNull if update: for the constraint)
      */
     public void setLoginPassword(String loginPassword) {
@@ -277,8 +282,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
-     * リマインダ質問: パスワードを忘れた際のリマインダ機能における質問の内容。
+     * [get] REMINDER_QUESTION: {NotNull, nvarchar(50)} <br>
      * @return The value of the column 'REMINDER_QUESTION'. (basically NotNull if selected: for the constraint)
      */
     public String getReminderQuestion() {
@@ -287,8 +291,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
-     * リマインダ質問: パスワードを忘れた際のリマインダ機能における質問の内容。
+     * [set] REMINDER_QUESTION: {NotNull, nvarchar(50)} <br>
      * @param reminderQuestion The value of the column 'REMINDER_QUESTION'. (basically NotNull if update: for the constraint)
      */
     public void setReminderQuestion(String reminderQuestion) {
@@ -297,8 +300,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
-     * リマインダ回答: パスワードを忘れた際のリマインダ機能における質問の答え。
+     * [get] REMINDER_ANSWER: {NotNull, nvarchar(50)} <br>
      * @return The value of the column 'REMINDER_ANSWER'. (basically NotNull if selected: for the constraint)
      */
     public String getReminderAnswer() {
@@ -307,8 +309,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
-     * リマインダ回答: パスワードを忘れた際のリマインダ機能における質問の答え。
+     * [set] REMINDER_ANSWER: {NotNull, nvarchar(50)} <br>
      * @param reminderAnswer The value of the column 'REMINDER_ANSWER'. (basically NotNull if update: for the constraint)
      */
     public void setReminderAnswer(String reminderAnswer) {
@@ -317,10 +318,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] REMINDER_USE_COUNT: {NotNull, INT(10)} <br>
-     * リマインダ利用回数: リマインダを利用した回数。<br>
-     * 多いと忘れっぽい会員と言えるが、<br>
-     * そんなことを知ってもしょうがない。
+     * [get] REMINDER_USE_COUNT: {NotNull, int(10)} <br>
      * @return The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReminderUseCount() {
@@ -329,10 +327,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] REMINDER_USE_COUNT: {NotNull, INT(10)} <br>
-     * リマインダ利用回数: リマインダを利用した回数。<br>
-     * 多いと忘れっぽい会員と言えるが、<br>
-     * そんなことを知ってもしょうがない。
+     * [set] REMINDER_USE_COUNT: {NotNull, int(10)} <br>
      * @param reminderUseCount The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if update: for the constraint)
      */
     public void setReminderUseCount(Integer reminderUseCount) {
@@ -341,7 +336,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] REGISTER_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -350,7 +345,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] REGISTER_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -359,7 +354,25 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] REGISTER_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @return The value of the column 'REGISTER_PROCESS'. (basically NotNull if selected: for the constraint)
+     */
+    public String getRegisterProcess() {
+        checkSpecifiedProperty("registerProcess");
+        return _registerProcess;
+    }
+
+    /**
+     * [set] REGISTER_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @param registerProcess The value of the column 'REGISTER_PROCESS'. (basically NotNull if update: for the constraint)
+     */
+    public void setRegisterProcess(String registerProcess) {
+        registerModifiedProperty("registerProcess");
+        _registerProcess = registerProcess;
+    }
+
+    /**
+     * [get] REGISTER_USER: {NotNull, nvarchar(200)} <br>
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -368,7 +381,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] REGISTER_USER: {NotNull, nvarchar(200)} <br>
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -377,7 +390,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] UPDATE_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -386,7 +399,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] UPDATE_DATETIME: {NotNull, datetime(23, 3)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -395,7 +408,25 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] UPDATE_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @return The value of the column 'UPDATE_PROCESS'. (basically NotNull if selected: for the constraint)
+     */
+    public String getUpdateProcess() {
+        checkSpecifiedProperty("updateProcess");
+        return _updateProcess;
+    }
+
+    /**
+     * [set] UPDATE_PROCESS: {NotNull, nvarchar(200)} <br>
+     * @param updateProcess The value of the column 'UPDATE_PROCESS'. (basically NotNull if update: for the constraint)
+     */
+    public void setUpdateProcess(String updateProcess) {
+        registerModifiedProperty("updateProcess");
+        _updateProcess = updateProcess;
+    }
+
+    /**
+     * [get] UPDATE_USER: {NotNull, nvarchar(200)} <br>
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -404,7 +435,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] UPDATE_USER: {NotNull, nvarchar(200)} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -413,7 +444,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * [get] VERSION_NO: {NotNull, bigint(19)} <br>
      * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -422,7 +453,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * [set] VERSION_NO: {NotNull, bigint(19)} <br>
      * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

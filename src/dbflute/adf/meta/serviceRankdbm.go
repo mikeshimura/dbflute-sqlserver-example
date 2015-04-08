@@ -26,11 +26,11 @@ var ServiceRankDbm *ServiceRankDbm_T
 
 func Create_ServiceRankDbm() {
 	ServiceRankDbm = new(ServiceRankDbm_T)
-	ServiceRankDbm.TableDbName = "service_rank"
-	ServiceRankDbm.TableDispName = "service_rank"
+	ServiceRankDbm.TableDbName = "SERVICE_RANK"
+	ServiceRankDbm.TableDispName = "SERVICE_RANK"
 	ServiceRankDbm.TablePropertyName = "serviceRank"
 	ServiceRankDbm.TableSqlName = new(df.TableSqlName)
-	ServiceRankDbm.TableSqlName.TableSqlName = "service_rank"
+	ServiceRankDbm.TableSqlName.TableSqlName = "exampledb.dbo.SERVICE_RANK"
 	ServiceRankDbm.TableSqlName.CorrespondingDbName = ServiceRankDbm.TableDbName
 
 	var serviceRank df.DBMeta
@@ -40,32 +40,32 @@ func Create_ServiceRankDbm() {
 	//colsqlname dayoo SERVICE_RANK_CODE
 	serviceRankCodeSqlName.ColumnSqlName = "SERVICE_RANK_CODE"
 	serviceRankCodeSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnServiceRankCode = df.CCI(&serviceRank, "SERVICE_RANK_CODE", serviceRankCodeSqlName, "", "", "String.class", "serviceRankCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","memberServiceList","",false,"string")
+	ServiceRankDbm.ColumnServiceRankCode = df.CCI(&serviceRank, "SERVICE_RANK_CODE", serviceRankCodeSqlName, "", "", "String.class", "serviceRankCode", "", true, false,true, "char", 3, 0, "",false,"","", "","memberServiceList","",false,"string")
 	serviceRankNameSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo SERVICE_RANK_NAME
 	serviceRankNameSqlName.ColumnSqlName = "SERVICE_RANK_NAME"
 	serviceRankNameSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnServiceRankName = df.CCI(&serviceRank, "SERVICE_RANK_NAME", serviceRankNameSqlName, "", "", "String.class", "serviceRankName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
+	ServiceRankDbm.ColumnServiceRankName = df.CCI(&serviceRank, "SERVICE_RANK_NAME", serviceRankNameSqlName, "", "", "String.class", "serviceRankName", "", false, false,true, "nvarchar", 50, 0, "",false,"","", "","","",false,"string")
 	servicePointIncidenceSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo SERVICE_POINT_INCIDENCE
 	servicePointIncidenceSqlName.ColumnSqlName = "SERVICE_POINT_INCIDENCE"
 	servicePointIncidenceSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnServicePointIncidence = df.CCI(&serviceRank, "SERVICE_POINT_INCIDENCE", servicePointIncidenceSqlName, "", "", "java.math.BigDecimal.class", "servicePointIncidence", "", false, false,true, "DECIMAL", 5, 3, "",false,"","", "","","",false,"df.Numeric")
+	ServiceRankDbm.ColumnServicePointIncidence = df.CCI(&serviceRank, "SERVICE_POINT_INCIDENCE", servicePointIncidenceSqlName, "", "", "java.math.BigDecimal.class", "servicePointIncidence", "", false, false,true, "numeric", 5, 3, "",false,"","", "","","",false,"df.Numeric")
 	newAcceptableFlgSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo NEW_ACCEPTABLE_FLG
 	newAcceptableFlgSqlName.ColumnSqlName = "NEW_ACCEPTABLE_FLG"
 	newAcceptableFlgSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnNewAcceptableFlg = df.CCI(&serviceRank, "NEW_ACCEPTABLE_FLG", newAcceptableFlgSqlName, "", "", "Integer.class", "newAcceptableFlg", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
+	ServiceRankDbm.ColumnNewAcceptableFlg = df.CCI(&serviceRank, "NEW_ACCEPTABLE_FLG", newAcceptableFlgSqlName, "", "", "Integer.class", "newAcceptableFlg", "", false, false,true, "int", 10, 0, "",false,"","", "","","",false,"int64")
 	descriptionSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo DESCRIPTION
 	descriptionSqlName.ColumnSqlName = "DESCRIPTION"
 	descriptionSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnDescription = df.CCI(&serviceRank, "DESCRIPTION", descriptionSqlName, "", "", "String.class", "description", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
+	ServiceRankDbm.ColumnDescription = df.CCI(&serviceRank, "DESCRIPTION", descriptionSqlName, "", "", "String.class", "description", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	displayOrderSqlName := new(df.ColumnSqlName)
 	//colsqlname dayoo DISPLAY_ORDER
 	displayOrderSqlName.ColumnSqlName = "DISPLAY_ORDER"
 	displayOrderSqlName.IrregularChar = false
-	ServiceRankDbm.ColumnDisplayOrder = df.CCI(&serviceRank, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
+	ServiceRankDbm.ColumnDisplayOrder = df.CCI(&serviceRank, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "int", 10, 0, "",false,"","", "","","",false,"int64")
 
 	ServiceRankDbm.ColumnInfoList = new(df.List)
 	ServiceRankDbm.ColumnInfoList.Add(ServiceRankDbm.ColumnServiceRankCode)

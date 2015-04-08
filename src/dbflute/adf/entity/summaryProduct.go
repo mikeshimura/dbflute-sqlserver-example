@@ -9,7 +9,7 @@ type SummaryProduct struct {
 	productName string
 	productHandleCode string
 	productStatusCode string
-	latestPurchaseDatetime df.MysqlNullTimestamp
+	latestPurchaseDatetime df.NullTimestamp
 	df.BaseEntity
 }
 
@@ -31,7 +31,7 @@ func (l *SummaryProduct) GetProductHandleCode () string {
 func (l *SummaryProduct) GetProductStatusCode () string {
 	return l.productStatusCode
 }
-func (l *SummaryProduct) GetLatestPurchaseDatetime () df.MysqlNullTimestamp {
+func (l *SummaryProduct) GetLatestPurchaseDatetime () df.NullTimestamp {
 	return l.latestPurchaseDatetime
 }
 
@@ -69,7 +69,7 @@ func (t *SummaryProduct) SetProductStatusCode(productStatusCode string) {
 	t.AddPropertyName("productStatusCode")
 	t.productStatusCode = productStatusCode
 }
-func (t *SummaryProduct) SetLatestPurchaseDatetime(latestPurchaseDatetime df.MysqlNullTimestamp) {
+func (t *SummaryProduct) SetLatestPurchaseDatetime(latestPurchaseDatetime df.NullTimestamp) {
 	t.AddPropertyName("latestPurchaseDatetime")
 	t.latestPurchaseDatetime = latestPurchaseDatetime
 }

@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.allcommon.*;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The DB meta of region. (Singleton)
+ * The DB meta of REGION. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
 public class RegionDbm extends AbstractDBMeta {
@@ -51,10 +51,10 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "region";
-    protected final String _tableDispName = "region";
+    protected final String _tableDbName = "REGION";
+    protected final String _tableDispName = "REGION";
     protected final String _tablePropertyName = "region";
-    protected final TableSqlName _tableSqlName = new TableSqlName("region", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("exampledb.dbo.REGION", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -64,18 +64,18 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, Integer.class, "regionId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "memberAddressList", null, false);
+    protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, Integer.class, "regionId", null, true, false, true, "int", 10, 0, null, false, null, null, null, "memberAddressList", null, false);
 //"int64"
-    protected final ColumnInfo _columnRegionName = cci("REGION_NAME", "REGION_NAME", null, null, String.class, "regionName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegionName = cci("REGION_NAME", "REGION_NAME", null, null, String.class, "regionName", null, false, false, true, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
 //"string"
 
     /**
-     * REGION_ID: {PK, NotNull, INT(10)}
+     * REGION_ID: {PK, NotNull, int(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionId() { return _columnRegionId; }
     /**
-     * REGION_NAME: {NotNull, VARCHAR(50)}
+     * REGION_NAME: {NotNull, nvarchar(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionName() { return _columnRegionName; }
@@ -112,7 +112,7 @@ public class RegionDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * member_address by REGION_ID, named 'memberAddressList'.
+     * MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberAddressList() {

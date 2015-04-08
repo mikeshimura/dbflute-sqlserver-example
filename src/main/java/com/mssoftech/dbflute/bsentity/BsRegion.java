@@ -10,9 +10,7 @@ import com.mssoftech.dbflute.allcommon.DBMetaInstanceHandler;
 import com.mssoftech.dbflute.exentity.*;
 
 /**
- * The entity of region as TABLE. <br>
- * 地域: 主に会員の住所に対応する地域。<br>
- * かなりざっくりした感じではある。
+ * The entity of REGION as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REGION_ID
@@ -33,7 +31,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     member_address
+ *     MEMBER_ADDRESS
  * 
  * [foreign property]
  *     
@@ -62,10 +60,10 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** REGION_ID: {PK, NotNull, INT(10)} */
+    /** REGION_ID: {PK, NotNull, int(10)} */
     protected Integer _regionId;
 
-    /** REGION_NAME: {NotNull, VARCHAR(50)} */
+    /** REGION_NAME: {NotNull, nvarchar(50)} */
     protected String _regionName;
 
     // ===================================================================================
@@ -78,7 +76,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "region";
+        return "REGION";
     }
 
     // ===================================================================================
@@ -96,11 +94,11 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** member_address by REGION_ID, named 'memberAddressList'. */
+    /** MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'. */
     protected List<MemberAddress> _memberAddressList;
 
     /**
-     * [get] member_address by REGION_ID, named 'memberAddressList'.
+     * [get] MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @return The entity list of referrer property 'memberAddressList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberAddress> getMemberAddressList() {
@@ -109,7 +107,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] member_address by REGION_ID, named 'memberAddressList'.
+     * [set] MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @param memberAddressList The entity list of referrer property 'memberAddressList'. (NullAllowed)
      */
     public void setMemberAddressList(List<MemberAddress> memberAddressList) {
@@ -182,8 +180,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] REGION_ID: {PK, NotNull, INT(10)} <br>
-     * 地域ID
+     * [get] REGION_ID: {PK, NotNull, int(10)} <br>
      * @return The value of the column 'REGION_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegionId() {
@@ -192,8 +189,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] REGION_ID: {PK, NotNull, INT(10)} <br>
-     * 地域ID
+     * [set] REGION_ID: {PK, NotNull, int(10)} <br>
      * @param regionId The value of the column 'REGION_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRegionId(Integer regionId) {
@@ -202,8 +198,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] REGION_NAME: {NotNull, VARCHAR(50)} <br>
-     * 地域名称
+     * [get] REGION_NAME: {NotNull, nvarchar(50)} <br>
      * @return The value of the column 'REGION_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getRegionName() {
@@ -212,8 +207,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] REGION_NAME: {NotNull, VARCHAR(50)} <br>
-     * 地域名称
+     * [set] REGION_NAME: {NotNull, nvarchar(50)} <br>
      * @param regionName The value of the column 'REGION_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setRegionName(String regionName) {

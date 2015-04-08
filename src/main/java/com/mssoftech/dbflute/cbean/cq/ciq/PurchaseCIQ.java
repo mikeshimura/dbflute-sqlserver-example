@@ -12,7 +12,7 @@ import com.mssoftech.dbflute.cbean.cq.bs.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of purchase.
+ * The condition-query for in-line of PURCHASE.
  * @author DBFlute(AutoGenerator)
  */
 public class PurchaseCIQ extends AbstractBsPurchaseCQ {
@@ -62,16 +62,6 @@ public class PurchaseCIQ extends AbstractBsPurchaseCQ {
     //                                                                Override about Query
     //                                                                ====================
     protected ConditionValue xgetCValuePurchaseId() { return _myCQ.xdfgetPurchaseId(); }
-    public String keepPurchaseId_ExistsReferrer_PurchasePaymentList(PurchasePaymentCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepPurchaseId_NotExistsReferrer_PurchasePaymentList(PurchasePaymentCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepPurchaseId_SpecifyDerivedReferrer_PurchasePaymentList(PurchasePaymentCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepPurchaseId_QueryDerivedReferrer_PurchasePaymentList(PurchasePaymentCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepPurchaseId_QueryDerivedReferrer_PurchasePaymentListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
     protected ConditionValue xgetCValueMemberId() { return _myCQ.xdfgetMemberId(); }
     protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     protected ConditionValue xgetCValuePurchaseDatetime() { return _myCQ.xdfgetPurchaseDatetime(); }
@@ -80,8 +70,10 @@ public class PurchaseCIQ extends AbstractBsPurchaseCQ {
     protected ConditionValue xgetCValuePaymentCompleteFlg() { return _myCQ.xdfgetPaymentCompleteFlg(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return _myCQ.xdfgetRegisterProcess(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return _myCQ.xdfgetUpdateProcess(); }
     protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(PurchaseCQ sq)

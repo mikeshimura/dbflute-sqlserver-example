@@ -20,7 +20,7 @@ import com.mssoftech.dbflute.cbean.*;
 import com.mssoftech.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of service_rank.
+ * The base condition-bean of SERVICE_RANK.
  * @author DBFlute(AutoGenerator)
  */
 public class BsServiceRankCB extends AbstractConditionBean {
@@ -69,7 +69,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "service_rank";
+        return "SERVICE_RANK";
     }
 
     // ===================================================================================
@@ -77,7 +77,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param serviceRankCode : PK, NotNull, CHAR(3). (NotNull)
+     * @param serviceRankCode : PK, NotNull, char(3). (NotNull)
      * @return this. (NotNull)
      */
     public ServiceRankCB acceptPK(String serviceRankCode) {
@@ -89,7 +89,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, int(10). (NotNull)
      * @return this. (NotNull)
      */
     public ServiceRankCB acceptUniqueOf(Integer displayOrder) {
@@ -292,32 +292,32 @@ public class BsServiceRankCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)}
+         * SERVICE_RANK_CODE: {PK, NotNull, char(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnServiceRankCode() { return doColumn("SERVICE_RANK_CODE"); }
         /**
-         * SERVICE_RANK_NAME: {NotNull, VARCHAR(50)}
+         * SERVICE_RANK_NAME: {NotNull, nvarchar(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnServiceRankName() { return doColumn("SERVICE_RANK_NAME"); }
         /**
-         * SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
+         * SERVICE_POINT_INCIDENCE: {NotNull, numeric(5, 3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnServicePointIncidence() { return doColumn("SERVICE_POINT_INCIDENCE"); }
         /**
-         * NEW_ACCEPTABLE_FLG: {NotNull, INT(10)}
+         * NEW_ACCEPTABLE_FLG: {NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnNewAcceptableFlg() { return doColumn("NEW_ACCEPTABLE_FLG"); }
         /**
-         * DESCRIPTION: {NotNull, VARCHAR(200)}
+         * DESCRIPTION: {NotNull, nvarchar(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
         /**
-         * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+         * DISPLAY_ORDER: {UQ, NotNull, int(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
@@ -328,11 +328,11 @@ public class BsServiceRankCB extends AbstractConditionBean {
             columnServiceRankCode(); // PK
         }
         @Override
-        protected String getTableDbName() { return "service_rank"; }
+        protected String getTableDbName() { return "SERVICE_RANK"; }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from member_service where ...) as FOO_MAX} <br>
-         * member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+         * {select max(FOO) from MEMBER_SERVICE where ...) as FOO_MAX} <br>
+         * MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     serviceCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
