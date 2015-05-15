@@ -31,7 +31,10 @@ func (q *WhiteDelimiterCQ) SetDelimiterId_Equal(value int64) *WhiteDelimiterCQ {
 	q.regDelimiterId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *WhiteDelimiterCQ) SetDelimiterId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDelimiterId(), "delimiterId")
+}
 func (q *WhiteDelimiterCQ) SetDelimiterId_NotEqual(value int64) *WhiteDelimiterCQ {
 	q.regDelimiterId(df.CK_NE_C, value)
 	return q
@@ -97,7 +100,10 @@ func (q *WhiteDelimiterCQ) SetNumberNullable_Equal(value int64) *WhiteDelimiterC
 	q.regNumberNullable(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *WhiteDelimiterCQ) SetNumberNullable_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueNumberNullable(), "numberNullable")
+}
 func (q *WhiteDelimiterCQ) SetNumberNullable_NotEqual(value int64) *WhiteDelimiterCQ {
 	q.regNumberNullable(df.CK_NE_C, value)
 	return q
@@ -162,7 +168,10 @@ func (q *WhiteDelimiterCQ) SetStringConverted_Equal(value string) *WhiteDelimite
 	q.regStringConverted(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *WhiteDelimiterCQ) SetStringConverted_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueStringConverted(), "stringConverted")
+}
 func (q *WhiteDelimiterCQ) SetStringConverted_NotEqual(value string) *WhiteDelimiterCQ {
 	q.regStringConverted(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -228,7 +237,10 @@ func (q *WhiteDelimiterCQ) SetStringNonConverted_Equal(value string) *WhiteDelim
 	q.regStringNonConverted(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *WhiteDelimiterCQ) SetStringNonConverted_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueStringNonConverted(), "stringNonConverted")
+}
 func (q *WhiteDelimiterCQ) SetStringNonConverted_NotEqual(value string) *WhiteDelimiterCQ {
 	q.regStringNonConverted(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -345,3 +357,18 @@ func (q *WhiteDelimiterCQ) regDateDefault(key *df.ConditionKey, value interface{
 	q.BaseConditionQuery.RegQ(key, value, q.DateDefault, "dateDefault")
 }
 
+
+func CreateWhiteDelimiterCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *WhiteDelimiterCQ {
+	cq := new(WhiteDelimiterCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "WhiteDelimiter"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

@@ -1,6 +1,7 @@
 -- #df:entity#
+-- ##df.NullDate birthdate##
 -- !df:pmb!
--- !!df.NullString name!!
+-- !!sql.NullString name!!
 SELECT 
   member.member_id, 
   member.member_name, 
@@ -19,3 +20,5 @@ WHERE
 -- ELSE member.member_name like 'M%'
 /*END*/
 and member.member_status_code = member_status.member_status_code
+
+Order by member_id desc

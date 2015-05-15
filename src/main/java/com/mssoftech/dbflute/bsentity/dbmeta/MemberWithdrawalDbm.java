@@ -90,9 +90,9 @@ public class MemberWithdrawalDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Integer.class, "memberId", null, true, false, true, "int", 10, 0, null, false, null, null, "member", null, null, false);
 //"int64"
     protected final ColumnInfo _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, String.class, "withdrawalReasonCode", null, false, false, false, "char", 3, 0, null, false, null, null, "withdrawalReason", null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnWithdrawalReasonInputText = cci("WITHDRAWAL_REASON_INPUT_TEXT", "WITHDRAWAL_REASON_INPUT_TEXT", null, null, String.class, "withdrawalReasonInputText", null, false, false, false, "text", 2147483647, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnWithdrawalDatetime = cci("WITHDRAWAL_DATETIME", "WITHDRAWAL_DATETIME", null, null, java.time.LocalDateTime.class, "withdrawalDatetime", null, false, false, true, "datetime", 23, 3, null, false, null, null, null, null, null, false);
 //"df.Timestamp"
     protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "datetime", 23, 3, null, false, null, null, null, null, null, false);

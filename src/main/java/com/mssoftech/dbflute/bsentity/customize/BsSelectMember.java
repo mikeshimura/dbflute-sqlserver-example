@@ -43,7 +43,7 @@ import com.mssoftech.dbflute.exentity.customize.*;
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
  * String memberAccount = entity.getMemberAccount();
- * String birthdate = entity.getBirthdate();
+ * df.NullDate birthdate = entity.getBirthdate();
  * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
  * String memberStatusCode = entity.getMemberStatusCode();
  * String memberStatusName = entity.getMemberStatusName();
@@ -81,7 +81,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
     protected String _memberAccount;
 
     /** birthdate: {nvarchar(10)} */
-    protected String _birthdate;
+    protected df.NullDate _birthdate;
 
     /** formalized_datetime: {datetime(23, 3)} */
     protected java.time.LocalDateTime _formalizedDatetime;
@@ -256,7 +256,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
      * [get] birthdate: {nvarchar(10)} <br>
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
-    public String getBirthdate() {
+    public df.NullDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -265,7 +265,7 @@ public abstract class BsSelectMember extends AbstractEntity implements Customize
      * [set] birthdate: {nvarchar(10)} <br>
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(df.NullDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }

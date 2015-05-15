@@ -1,4 +1,25 @@
 map:{
+    ; 2015/05/15 15:30:26 = map:{
+        ; diffDate = 2015/05/15 15:30:26
+        ; tableCount = map:{
+            ; next = 15
+            ; previous = 18
+        }
+        ; tableDiff = map:{
+            ; SUMMARY_PRODUCT = map:{
+                ; tableName = SUMMARY_PRODUCT
+                ; diffType = DELETE
+            }
+            ; SUMMARY_WITHDRAWAL = map:{
+                ; tableName = SUMMARY_WITHDRAWAL
+                ; diffType = DELETE
+            }
+            ; VENDOR_SYMMETRIC = map:{
+                ; tableName = VENDOR_SYMMETRIC
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2015/04/07 22:06:21 = map:{
         ; diffDate = 2015/04/07 22:06:21
         ; tableCount = map:{

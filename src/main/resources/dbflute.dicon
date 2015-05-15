@@ -26,9 +26,6 @@
     <component name="purchaseBhv" class="com.mssoftech.dbflute.exbhv.PurchaseBhv"/>
     <component name="regionBhv" class="com.mssoftech.dbflute.exbhv.RegionBhv"/>
     <component name="serviceRankBhv" class="com.mssoftech.dbflute.exbhv.ServiceRankBhv"/>
-    <component name="summaryProductBhv" class="com.mssoftech.dbflute.exbhv.SummaryProductBhv"/>
-    <component name="summaryWithdrawalBhv" class="com.mssoftech.dbflute.exbhv.SummaryWithdrawalBhv"/>
-    <component name="vendorSymmetricBhv" class="com.mssoftech.dbflute.exbhv.VendorSymmetricBhv"/>
     <component name="whiteDelimiterBhv" class="com.mssoftech.dbflute.exbhv.WhiteDelimiterBhv"/>
     <component name="withdrawalReasonBhv" class="com.mssoftech.dbflute.exbhv.WithdrawalReasonBhv"/>
 </components>

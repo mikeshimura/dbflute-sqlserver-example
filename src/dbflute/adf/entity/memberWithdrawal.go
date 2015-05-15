@@ -2,12 +2,13 @@ package entity
 
 import (
 	"github.com/mikeshimura/dbflute/df"
+	"database/sql"
 )
 
 type MemberWithdrawal struct {
 	memberId int64
-	withdrawalReasonCode df.NullString
-	withdrawalReasonInputText df.NullString
+	withdrawalReasonCode sql.NullString
+	withdrawalReasonInputText sql.NullString
 	withdrawalDatetime df.Timestamp
 	registerDatetime df.Timestamp
 	registerProcess string
@@ -17,6 +18,10 @@ type MemberWithdrawal struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+Member_R  *Member
+
+WithdrawalReason_R  *WithdrawalReason
+
 }
 
 func CreateMemberWithdrawal() *MemberWithdrawal{
@@ -28,10 +33,10 @@ func CreateMemberWithdrawal() *MemberWithdrawal{
 func (l *MemberWithdrawal) GetMemberId () int64 {
 	return l.memberId
 }
-func (l *MemberWithdrawal) GetWithdrawalReasonCode () df.NullString {
+func (l *MemberWithdrawal) GetWithdrawalReasonCode () sql.NullString {
 	return l.withdrawalReasonCode
 }
-func (l *MemberWithdrawal) GetWithdrawalReasonInputText () df.NullString {
+func (l *MemberWithdrawal) GetWithdrawalReasonInputText () sql.NullString {
 	return l.withdrawalReasonInputText
 }
 func (l *MemberWithdrawal) GetWithdrawalDatetime () df.Timestamp {
@@ -90,11 +95,11 @@ func (t *MemberWithdrawal) SetMemberId(memberId int64) {
 	t.AddPropertyName("memberId")
 	t.memberId = memberId
 }
-func (t *MemberWithdrawal) SetWithdrawalReasonCode(withdrawalReasonCode df.NullString) {
+func (t *MemberWithdrawal) SetWithdrawalReasonCode(withdrawalReasonCode sql.NullString) {
 	t.AddPropertyName("withdrawalReasonCode")
 	t.withdrawalReasonCode = withdrawalReasonCode
 }
-func (t *MemberWithdrawal) SetWithdrawalReasonInputText(withdrawalReasonInputText df.NullString) {
+func (t *MemberWithdrawal) SetWithdrawalReasonInputText(withdrawalReasonInputText sql.NullString) {
 	t.AddPropertyName("withdrawalReasonInputText")
 	t.withdrawalReasonInputText = withdrawalReasonInputText
 }
@@ -130,7 +135,18 @@ func (t *MemberWithdrawal) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *MemberWithdrawal) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *MemberWithdrawal) SetMember_R(value *Member) {
+    t.Member_R = value
+}
+func (t *MemberWithdrawal) GetWithdrawalReason_R() *WithdrawalReason{
+	return t.WithdrawalReason_R
+}
+func (t *MemberWithdrawal) SetWithdrawalReason_R(value *WithdrawalReason) {
+    t.WithdrawalReason_R = value
+}
 func (t *MemberWithdrawal) SetUp(){
 	
 }

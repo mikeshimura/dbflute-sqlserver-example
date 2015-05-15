@@ -83,24 +83,6 @@ func EntityInit() {
 		return &te
 	}
 	df.BhvUtil_I.AddEntity("ServiceRank", ServiceRank)
-	SummaryProduct := func() *df.Entity {
-		var te df.Entity = new(SummaryProduct)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("SummaryProduct", SummaryProduct)
-	SummaryWithdrawal := func() *df.Entity {
-		var te df.Entity = new(SummaryWithdrawal)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("SummaryWithdrawal", SummaryWithdrawal)
-	VendorSymmetric := func() *df.Entity {
-		var te df.Entity = new(VendorSymmetric)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorSymmetric", VendorSymmetric)
 	WhiteDelimiter := func() *df.Entity {
 		var te df.Entity = new(WhiteDelimiter)
 		te.SetUp()

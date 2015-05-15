@@ -74,7 +74,7 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
 //"string"
     protected final ColumnInfo _columnStringNonConverted = cci("STRING_NON_CONVERTED", "STRING_NON_CONVERTED", null, null, String.class, "stringNonConverted", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnDateDefault = cci("DATE_DEFAULT", "DATE_DEFAULT", null, null, java.time.LocalDateTime.class, "dateDefault", null, false, false, true, "datetime", 23, 3, null, false, null, null, null, null, null, false);
 //"df.Timestamp"
 

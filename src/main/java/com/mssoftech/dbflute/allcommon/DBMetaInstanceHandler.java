@@ -44,9 +44,6 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("PURCHASE", "com.mssoftech.dbflute.bsentity.dbmeta.PurchaseDbm");
         tmpMap.put("REGION", "com.mssoftech.dbflute.bsentity.dbmeta.RegionDbm");
         tmpMap.put("SERVICE_RANK", "com.mssoftech.dbflute.bsentity.dbmeta.ServiceRankDbm");
-        tmpMap.put("SUMMARY_PRODUCT", "com.mssoftech.dbflute.bsentity.dbmeta.SummaryProductDbm");
-        tmpMap.put("SUMMARY_WITHDRAWAL", "com.mssoftech.dbflute.bsentity.dbmeta.SummaryWithdrawalDbm");
-        tmpMap.put("VENDOR_SYMMETRIC", "com.mssoftech.dbflute.bsentity.dbmeta.VendorSymmetricDbm");
         tmpMap.put("WHITE_DELIMITER", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteDelimiterDbm");
         tmpMap.put("WITHDRAWAL_REASON", "com.mssoftech.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);

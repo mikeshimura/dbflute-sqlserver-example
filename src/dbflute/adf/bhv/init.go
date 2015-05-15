@@ -103,27 +103,6 @@ func init() {
 	var serviceRank df.Behavior =ServiceRankBhv_I
 	ServiceRankBhv_I.BaseBehavior.Behavior=&serviceRank
 	ServiceRankBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	SummaryProductBhv_I = new(SummaryProductBhv)
-	SummaryProductBhv_I.BaseBehavior = new(df.BaseBehavior)
-	SummaryProductBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	SummaryProductBhv_I.BaseBehavior.TableDbName = "SummaryProduct"
-	var summaryProduct df.Behavior =SummaryProductBhv_I
-	SummaryProductBhv_I.BaseBehavior.Behavior=&summaryProduct
-	SummaryProductBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	SummaryWithdrawalBhv_I = new(SummaryWithdrawalBhv)
-	SummaryWithdrawalBhv_I.BaseBehavior = new(df.BaseBehavior)
-	SummaryWithdrawalBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	SummaryWithdrawalBhv_I.BaseBehavior.TableDbName = "SummaryWithdrawal"
-	var summaryWithdrawal df.Behavior =SummaryWithdrawalBhv_I
-	SummaryWithdrawalBhv_I.BaseBehavior.Behavior=&summaryWithdrawal
-	SummaryWithdrawalBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorSymmetricBhv_I = new(VendorSymmetricBhv)
-	VendorSymmetricBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorSymmetricBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorSymmetricBhv_I.BaseBehavior.TableDbName = "VendorSymmetric"
-	var vendorSymmetric df.Behavior =VendorSymmetricBhv_I
-	VendorSymmetricBhv_I.BaseBehavior.Behavior=&vendorSymmetric
-	VendorSymmetricBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
 	WhiteDelimiterBhv_I = new(WhiteDelimiterBhv)
 	WhiteDelimiterBhv_I.BaseBehavior = new(df.BaseBehavior)
 	WhiteDelimiterBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()

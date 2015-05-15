@@ -24,6 +24,20 @@ type MemberDbm_T struct {
 func (b *MemberDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *MemberDbm_T) foreignMemberStatus() *df.ForeignInfo {
+	columns := []*df.ColumnInfo{
+		MemberDbm.GetColumnInfoByPropertyName("memberStatusCode"),
+		MemberStatusDbm.GetColumnInfoByPropertyName("memberStatusCode"),
+	}
+
+	return b.BaseDBMeta.Cfi("FK_MEMBER_MEMBER_STATUS", "MemberStatus",
+		columns, 0, false, false, false, false,
+		"", nil, false, "memberList")
+}	
+func (b *MemberDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+	b.ForeignInfoMap["MemberStatus"] = b.foreignMemberStatus()
+}
 
 func (b *MemberDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -45,67 +59,54 @@ func Create_MemberDbm() {
 	member = MemberDbm
 	MemberDbm.DBMeta=&member
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_ID
 	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
 	MemberDbm.ColumnMemberId = df.CCI(&member, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", true, true,true, "int identity", 10, 0, "",false,"","", "","memberAddressList,memberLoginList,purchaseList","",false,"int64")
 	memberNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_NAME
 	memberNameSqlName.ColumnSqlName = "MEMBER_NAME"
 	memberNameSqlName.IrregularChar = false
 	MemberDbm.ColumnMemberName = df.CCI(&member, "MEMBER_NAME", memberNameSqlName, "", "", "String.class", "memberName", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	memberAccountSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_ACCOUNT
 	memberAccountSqlName.ColumnSqlName = "MEMBER_ACCOUNT"
 	memberAccountSqlName.IrregularChar = false
 	MemberDbm.ColumnMemberAccount = df.CCI(&member, "MEMBER_ACCOUNT", memberAccountSqlName, "", "", "String.class", "memberAccount", "", false, false,true, "nvarchar", 50, 0, "",false,"","", "","","",false,"string")
 	memberStatusCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_STATUS_CODE
 	memberStatusCodeSqlName.ColumnSqlName = "MEMBER_STATUS_CODE"
 	memberStatusCodeSqlName.IrregularChar = false
 	MemberDbm.ColumnMemberStatusCode = df.CCI(&member, "MEMBER_STATUS_CODE", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", false, false,true, "char", 3, 0, "",false,"","", "memberStatus","","",false,"string")
 	formalizedDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo FORMALIZED_DATETIME
 	formalizedDatetimeSqlName.ColumnSqlName = "FORMALIZED_DATETIME"
 	formalizedDatetimeSqlName.IrregularChar = false
 	MemberDbm.ColumnFormalizedDatetime = df.CCI(&member, "FORMALIZED_DATETIME", formalizedDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "formalizedDatetime", "", false, false,false, "datetime", 23, 3, "",false,"","", "","","",false,"df.NullTimestamp")
 	birthdateSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo BIRTHDATE
 	birthdateSqlName.ColumnSqlName = "BIRTHDATE"
 	birthdateSqlName.IrregularChar = false
 	MemberDbm.ColumnBirthdate = df.CCI(&member, "BIRTHDATE", birthdateSqlName, "", "", "String.class", "birthdate", "", false, false,false, "date", 10, 0, "",false,"","", "","","",false,"df.NullDate")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_DATETIME
 	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
 	MemberDbm.ColumnRegisterDatetime = df.CCI(&member, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "datetime", 23, 3, "",false,"","", "","","",false,"df.Timestamp")
 	registerUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_USER
 	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
 	MemberDbm.ColumnRegisterUser = df.CCI(&member, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	registerProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_PROCESS
 	registerProcessSqlName.ColumnSqlName = "REGISTER_PROCESS"
 	registerProcessSqlName.IrregularChar = false
 	MemberDbm.ColumnRegisterProcess = df.CCI(&member, "REGISTER_PROCESS", registerProcessSqlName, "", "", "String.class", "registerProcess", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_DATETIME
 	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
 	MemberDbm.ColumnUpdateDatetime = df.CCI(&member, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "datetime", 23, 3, "",false,"","", "","","",false,"df.Timestamp")
 	updateUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_USER
 	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
 	MemberDbm.ColumnUpdateUser = df.CCI(&member, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	updateProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_PROCESS
 	updateProcessSqlName.ColumnSqlName = "UPDATE_PROCESS"
 	updateProcessSqlName.IrregularChar = false
 	MemberDbm.ColumnUpdateProcess = df.CCI(&member, "UPDATE_PROCESS", updateProcessSqlName, "", "", "String.class", "updateProcess", "", false, false,true, "nvarchar", 200, 0, "",false,"","", "","","",false,"string")
 	versionNoSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo VERSION_NO
 	versionNoSqlName.ColumnSqlName = "VERSION_NO"
 	versionNoSqlName.IrregularChar = false
 	MemberDbm.ColumnVersionNo = df.CCI(&member, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "bigint", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")

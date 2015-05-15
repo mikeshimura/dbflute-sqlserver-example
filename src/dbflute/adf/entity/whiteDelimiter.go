@@ -9,7 +9,7 @@ type WhiteDelimiter struct {
 	delimiterId int64
 	numberNullable sql.NullInt64
 	stringConverted string
-	stringNonConverted df.NullString
+	stringNonConverted sql.NullString
 	dateDefault df.Timestamp
 	df.BaseEntity
 }
@@ -29,7 +29,7 @@ func (l *WhiteDelimiter) GetNumberNullable () sql.NullInt64 {
 func (l *WhiteDelimiter) GetStringConverted () string {
 	return l.stringConverted
 }
-func (l *WhiteDelimiter) GetStringNonConverted () df.NullString {
+func (l *WhiteDelimiter) GetStringNonConverted () sql.NullString {
 	return l.stringNonConverted
 }
 func (l *WhiteDelimiter) GetDateDefault () df.Timestamp {
@@ -69,7 +69,7 @@ func (t *WhiteDelimiter) SetStringConverted(stringConverted string) {
 	t.AddPropertyName("stringConverted")
 	t.stringConverted = stringConverted
 }
-func (t *WhiteDelimiter) SetStringNonConverted(stringNonConverted df.NullString) {
+func (t *WhiteDelimiter) SetStringNonConverted(stringNonConverted sql.NullString) {
 	t.AddPropertyName("stringNonConverted")
 	t.stringNonConverted = stringNonConverted
 }
@@ -77,7 +77,6 @@ func (t *WhiteDelimiter) SetDateDefault(dateDefault df.Timestamp) {
 	t.AddPropertyName("dateDefault")
 	t.dateDefault = dateDefault
 }
-
 func (t *WhiteDelimiter) SetUp(){
 	
 }

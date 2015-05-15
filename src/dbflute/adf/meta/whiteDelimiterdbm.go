@@ -16,6 +16,9 @@ type WhiteDelimiterDbm_T struct {
 func (b *WhiteDelimiterDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *WhiteDelimiterDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+}
 
 func (b *WhiteDelimiterDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -37,27 +40,22 @@ func Create_WhiteDelimiterDbm() {
 	whiteDelimiter = WhiteDelimiterDbm
 	WhiteDelimiterDbm.DBMeta=&whiteDelimiter
 	delimiterIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo DELIMITER_ID
 	delimiterIdSqlName.ColumnSqlName = "DELIMITER_ID"
 	delimiterIdSqlName.IrregularChar = false
 	WhiteDelimiterDbm.ColumnDelimiterId = df.CCI(&whiteDelimiter, "DELIMITER_ID", delimiterIdSqlName, "", "", "Long.class", "delimiterId", "", true, true,true, "bigint identity", 19, 0, "",false,"","", "","","",false,"int64")
 	numberNullableSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo NUMBER_NULLABLE
 	numberNullableSqlName.ColumnSqlName = "NUMBER_NULLABLE"
 	numberNullableSqlName.IrregularChar = false
 	WhiteDelimiterDbm.ColumnNumberNullable = df.CCI(&whiteDelimiter, "NUMBER_NULLABLE", numberNullableSqlName, "", "", "Integer.class", "numberNullable", "", false, false,false, "int", 10, 0, "",false,"","", "","","",false,"sql.NullInt64")
 	stringConvertedSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo STRING_CONVERTED
 	stringConvertedSqlName.ColumnSqlName = "STRING_CONVERTED"
 	stringConvertedSqlName.IrregularChar = false
 	WhiteDelimiterDbm.ColumnStringConverted = df.CCI(&whiteDelimiter, "STRING_CONVERTED", stringConvertedSqlName, "", "", "String.class", "stringConverted", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
 	stringNonConvertedSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo STRING_NON_CONVERTED
 	stringNonConvertedSqlName.ColumnSqlName = "STRING_NON_CONVERTED"
 	stringNonConvertedSqlName.IrregularChar = false
-	WhiteDelimiterDbm.ColumnStringNonConverted = df.CCI(&whiteDelimiter, "STRING_NON_CONVERTED", stringNonConvertedSqlName, "", "", "String.class", "stringNonConverted", "", false, false,false, "varchar", 200, 0, "",false,"","", "","","",false,"df.NullString")
+	WhiteDelimiterDbm.ColumnStringNonConverted = df.CCI(&whiteDelimiter, "STRING_NON_CONVERTED", stringNonConvertedSqlName, "", "", "String.class", "stringNonConverted", "", false, false,false, "varchar", 200, 0, "",false,"","", "","","",false,"sql.NullString")
 	dateDefaultSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo DATE_DEFAULT
 	dateDefaultSqlName.ColumnSqlName = "DATE_DEFAULT"
 	dateDefaultSqlName.IrregularChar = false
 	WhiteDelimiterDbm.ColumnDateDefault = df.CCI(&whiteDelimiter, "DATE_DEFAULT", dateDefaultSqlName, "", "", "java.time.LocalDateTime.class", "dateDefault", "", false, false,true, "datetime", 23, 3, "",false,"","", "","","",false,"df.Timestamp")

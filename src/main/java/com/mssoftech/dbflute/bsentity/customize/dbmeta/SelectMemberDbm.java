@@ -45,7 +45,7 @@ public class SelectMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SelectMember)et).getMemberId(), (et, vl) -> ((SelectMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((SelectMember)et).getMemberName(), (et, vl) -> ((SelectMember)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((SelectMember)et).getMemberAccount(), (et, vl) -> ((SelectMember)et).setMemberAccount((String)vl), "memberAccount");
-        setupEpg(_epgMap, et -> ((SelectMember)et).getBirthdate(), (et, vl) -> ((SelectMember)et).setBirthdate((String)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((SelectMember)et).getBirthdate(), (et, vl) -> ((SelectMember)et).setBirthdate((df.NullDate)vl), "birthdate");
         setupEpg(_epgMap, et -> ((SelectMember)et).getFormalizedDatetime(), (et, vl) -> ((SelectMember)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SelectMember)et).getMemberStatusCode(), (et, vl) -> ((SelectMember)et).setMemberStatusCode((String)vl), "memberStatusCode");
         setupEpg(_epgMap, et -> ((SelectMember)et).getMemberStatusName(), (et, vl) -> ((SelectMember)et).setMemberStatusName((String)vl), "memberStatusName");
@@ -73,19 +73,19 @@ public class SelectMemberDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, null, Integer.class, "memberId", null, false, false, false, "int identity", 10, 0, null, false, null, null, null, null, null, false);
 //"sql.NullInt64"
     protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, null, String.class, "memberName", null, false, false, false, "nvarchar", 200, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnMemberAccount = cci("member_account", "member_account", null, null, String.class, "memberAccount", null, false, false, false, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
-    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, null, String.class, "birthdate", null, false, false, false, "nvarchar", 10, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
+    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, null, df.NullDate.class, "birthdate", null, false, false, false, "nvarchar", 10, 0, null, false, null, null, null, null, null, false);
+//"df.NullDate"
     protected final ColumnInfo _columnFormalizedDatetime = cci("formalized_datetime", "formalized_datetime", null, null, java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "datetime", 23, 3, null, false, null, null, null, null, null, false);
 //"df.NullTimestamp"
     protected final ColumnInfo _columnMemberStatusCode = cci("member_status_code", "member_status_code", null, null, String.class, "memberStatusCode", null, false, false, false, "char", 3, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, null, String.class, "memberStatusName", null, false, false, false, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
     protected final ColumnInfo _columnDescription = cci("description", "description", null, null, String.class, "description", null, false, false, false, "nvarchar", 200, 0, null, false, null, null, null, null, null, false);
-//"df.NullString"
+//"sql.NullString"
 
     /**
      * member_id: {int identity(10)}

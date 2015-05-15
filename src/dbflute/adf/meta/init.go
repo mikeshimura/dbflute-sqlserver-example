@@ -57,18 +57,6 @@ func MetaInit() {
 	var ServiceRank_meta df.DBMeta = ServiceRankDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["ServiceRank"] = &ServiceRank_meta
 	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("ServiceRank", "ServiceRank")
-	Create_SummaryProductDbm()
-	var SummaryProduct_meta df.DBMeta = SummaryProductDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["SummaryProduct"] = &SummaryProduct_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("SummaryProduct", "SummaryProduct")
-	Create_SummaryWithdrawalDbm()
-	var SummaryWithdrawal_meta df.DBMeta = SummaryWithdrawalDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["SummaryWithdrawal"] = &SummaryWithdrawal_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("SummaryWithdrawal", "SummaryWithdrawal")
-	Create_VendorSymmetricDbm()
-	var VendorSymmetric_meta df.DBMeta = VendorSymmetricDbm
-	df.DBMetaProvider_I.TableDbNameInstanceMap["VendorSymmetric"] = &VendorSymmetric_meta
-	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("VendorSymmetric", "VendorSymmetric")
 	Create_WhiteDelimiterDbm()
 	var WhiteDelimiter_meta df.DBMeta = WhiteDelimiterDbm
 	df.DBMetaProvider_I.TableDbNameInstanceMap["WhiteDelimiter"] = &WhiteDelimiter_meta
